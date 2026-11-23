@@ -383,6 +383,50 @@
   .w-taste h2 { margin-top: 6px; } .w-taste p:last-child { margin-top: 8px; font-size: .95rem; }
   .buy-price small s { opacity: .8; margin-right: 4px; }
   footer .f-sig { font-weight: 800; color: var(--vert); font-size: .95rem; }
+
+  /* ---------- Nos réseaux ---------- */
+  .so-wrap { padding-top: 24px; }
+  .so-head { display: grid; grid-template-columns: 86px 1fr; gap: 16px; align-items: center; }
+  .so-av { width: 86px; height: 86px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #2E5A46, var(--vert)); color: #fff; font-weight: 900; font-size: 1.05rem; display: grid; place-items: center; box-shadow: 0 0 0 3px #fff, 0 0 0 6px #F59A32; }
+  .so-handle { font-weight: 800; font-size: 1.2rem; color: var(--vert); }
+  .so-name { font-size: .9rem; color: var(--gris); }
+  .so-stats { font-size: .9rem; margin-top: 4px; color: var(--ink); }
+  .so-bio { margin-top: 14px; font-size: .93rem; }
+  .so-tabs { display: flex; gap: 6px; overflow-x: auto; margin: 18px -18px 0; padding: 0 18px 2px; scrollbar-width: none; border-bottom: 1px solid var(--filet); }
+  .so-tabs button { flex: none; font: inherit; font-size: .84rem; font-weight: 700; color: var(--gris); background: none; border: none; border-bottom: 3px solid transparent; padding: 10px 6px; cursor: pointer; }
+  .so-tabs button[aria-selected="true"] { color: var(--vert); border-color: var(--vert); }
+  .v-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 3px; }
+  .v-cell { position: relative; aspect-ratio: 9 / 16; border: none; padding: 0; cursor: pointer; background: #ddd; overflow: hidden; }
+  .v-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .v-cell span { position: absolute; left: 6px; bottom: 6px; right: 6px; color: #fff; font-size: .7rem; font-weight: 700; text-align: left; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+  .v-cell::after { content: ""; position: absolute; top: 8px; right: 8px; border-left: 12px solid #fff; border-top: 7px solid transparent; border-bottom: 7px solid transparent; filter: drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+  .p-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 18px; }
+  .p-cell { aspect-ratio: 1; border: none; padding: 0; cursor: pointer; background: #ddd; overflow: hidden; }
+  .p-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .2s; }
+  .p-cell:hover img, .p-cell:focus-visible img { transform: scale(1.04); }
+  .vp { position: fixed; inset: 0; z-index: 70; background: #000; }
+  .vp[hidden], .pv[hidden] { display: none; }
+  .vp-feed { height: 100%; overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; }
+  .vp-item { position: relative; height: 100%; scroll-snap-align: start; display: grid; place-items: center; }
+  .vp-item video { height: 100%; width: 100%; max-width: calc(100vh * 9 / 16); object-fit: contain; background: #000; }
+  .vp-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 18px calc(22px + env(safe-area-inset-bottom)); background: linear-gradient(transparent, rgba(0,0,0,.75)); color: #fff; max-width: 560px; margin: 0 auto; }
+  .vp-cap b { display: block; font-size: .95rem; }
+  .vp-cap p { font-size: .88rem; margin-top: 4px; opacity: .92; }
+  .vp-cap a { display: inline-block; margin-top: 10px; background: #fff; color: var(--vert); font-weight: 800; font-size: .84rem; text-decoration: none; padding: 8px 14px; border-radius: 999px; }
+  .vp-x { position: absolute; top: calc(12px + env(safe-area-inset-top)); right: 12px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,.18); color: #fff; font-size: 1.6rem; cursor: pointer; }
+  .vp-hint { position: absolute; top: calc(18px + env(safe-area-inset-top)); left: 18px; color: #fff; font-size: .78rem; font-weight: 700; opacity: .8; }
+  .pv { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: 16px; }
+  .pv-bg { position: absolute; inset: 0; background: rgba(10,20,15,.8); }
+  .pv-box { position: relative; background: #fff; border-radius: 18px; overflow: hidden; width: min(100%, 520px); max-height: 94vh; overflow-y: auto; }
+  .pv-box img { width: 100%; display: block; aspect-ratio: 1; object-fit: cover; }
+  .pv-txt { padding: 14px 16px 16px; }
+  .pv-handle { font-weight: 800; color: var(--vert); font-size: .92rem; }
+  #pvCap { font-size: .92rem; margin-top: 4px; }
+  .pv-nav { display: flex; justify-content: space-between; gap: 8px; margin-top: 14px; }
+  .pv-nav .btn { min-height: 40px; font-size: .86rem; padding: 0 14px; }
+  .pv .m-x { z-index: 2; background: rgba(255,255,255,.9); }
+  footer a { color: var(--vert); font-weight: 700; }
+  a.handle { text-decoration: none; }
 </style>
 </head>
 <body>
@@ -766,6 +810,59 @@
   </div>
 </div>
 
+
+<!-- ========== NOS VIDÉOS ========== -->
+<div id="vids" class="view">
+  <div class="wrap so-wrap">
+    <div class="so-head">
+      <div class="so-av">NŌVAÏ</div>
+      <div class="so-id">
+        <p class="so-handle">@novai.boissons</p>
+        <p class="so-name">NŌVAÏ · Boissons fonctionnelles</p>
+        <p class="so-stats"><b class="num">6</b> vidéos · <b>2</b> séries</p>
+      </div>
+    </div>
+    <p class="so-bio">Chaque moment a sa NŌVAÏ. Énergie, concentration, détente, récupération : d’origine naturelle, sans sucre, avec un vrai goût. Nice, France.</p>
+    <div class="so-tabs" role="tablist">
+      <button type="button" role="tab" aria-selected="true" data-serie="all">Toutes</button>
+      <button type="button" role="tab" aria-selected="false" data-serie="moment">Chaque moment a sa NŌVAÏ</button>
+      <button type="button" role="tab" aria-selected="false" data-serie="ingr">Qu’est-ce qu’il y a dans ta NŌVAÏ ?</button>
+    </div>
+    <div class="v-grid" id="vGrid"></div>
+  </div>
+</div>
+
+<!-- ========== NOS PHOTOS ========== -->
+<div id="pics" class="view">
+  <div class="wrap so-wrap">
+    <div class="so-head">
+      <div class="so-av">NŌVAÏ</div>
+      <div class="so-id">
+        <p class="so-handle">@novai.boissons</p>
+        <p class="so-name">NŌVAÏ · Boissons fonctionnelles</p>
+        <p class="so-stats"><b class="num">9</b> publications</p>
+      </div>
+    </div>
+    <p class="so-bio">Chaque moment a sa NŌVAÏ. Énergie, concentration, détente, récupération : d’origine naturelle, sans sucre, avec un vrai goût. Nice, France.</p>
+    <div class="p-grid" id="pGrid"></div>
+  </div>
+</div>
+
+<div class="vp" id="vPlayer" hidden>
+  <button type="button" class="vp-x" id="vpClose" aria-label="Fermer">×</button>
+  <div class="vp-feed" id="vpFeed"></div>
+</div>
+<div class="pv" id="pViewer" hidden>
+  <div class="pv-bg" data-pclose></div>
+  <div class="pv-box" role="dialog" aria-modal="true" aria-label="Publication">
+    <button type="button" class="m-x" data-pclose aria-label="Fermer">×</button>
+    <img id="pvImg" alt="">
+    <div class="pv-txt"><p class="pv-handle">@novai.boissons</p><p id="pvCap"></p>
+      <div class="pv-nav"><button type="button" class="btn btn-line" id="pvPrev">‹ Précédente</button><button type="button" class="btn btn-line" id="pvNext">Suivante ›</button></div>
+    </div>
+  </div>
+</div>
+
 <!-- ========== PANIER ========== -->
 <div id="cart" class="view">
   <header class="s-hero c-hero">
@@ -826,7 +923,7 @@
   <div class="wrap">
     <p class="wm">NŌVAÏ</p>
     <p class="f-sig">Chaque moment a sa NŌVAÏ.</p>
-    <p>Suis-nous sur Instagram et TikTok : <strong>@novai.boissons</strong></p>
+    <p>Suis-nous sur <a href="#nos-photos">Instagram</a> et <a href="#nos-videos">TikTok</a> : <strong>@novai.boissons</strong></p>
     <p>NŌVAÏ SAS, 06000 Nice, France.</p>
     <p>Projet étudiant réalisé dans le cadre d’un TD de marketing (ESDHEM). La marque, les produits, les recettes et les origines présentés sont fictifs.</p>
   </div>
@@ -1164,7 +1261,7 @@ function render() {
     <div class="contact">
       <h3>Une question, une bouteille abîmée ?</h3>
       <p>Notre service client répond à tes questions sur les produits et leur composition. En cas de bouteille défectueuse ou endommagée, nous étudions une solution : remplacement ou remboursement.</p>
-      <span class="handle">@novai.boissons</span>
+      <a class="handle" href="#nos-photos">@novai.boissons</a>
     </div>
   </section>`;
 }
@@ -1308,9 +1405,11 @@ function route() {
   else if (h === "ou-nous-trouver") v = "where";
   else if (h === "pack-decouverte") v = "pack";
   else if (h === "experience") v = "exp";
+  else if (h === "nos-videos") v = "vids";
+  else if (h === "nos-photos") v = "pics";
   else if (byId(h)) v = "product";
   else if (h === "gamme-accueil") target = "gamme-accueil";
-  document.querySelectorAll(".view").forEach(el => el.classList.toggle("on", el.id === { home: "home", story: "story", cart: "cart", where: "where", pack: "pack", exp: "exp" }[v]));
+  document.querySelectorAll(".view").forEach(el => el.classList.toggle("on", el.id === { home: "home", story: "story", cart: "cart", where: "where", pack: "pack", exp: "exp", vids: "vids", pics: "pics" }[v]));
   document.querySelectorAll(".pview").forEach(el => el.classList.toggle("off", v !== "product"));
   document.querySelectorAll(".site-links a, .cart-link").forEach(a => {
     const on = (a.dataset.nav === "home" && v === "home" && !target) || (a.dataset.nav === "gamme" && target) || (a.dataset.nav === "story" && v === "story") || (a.dataset.nav === "cart" && v === "cart") || (a.dataset.nav === "where" && v === "where") || (a.dataset.nav === "pack" && v === "pack") || (a.dataset.nav === "exp" && v === "exp");
@@ -1319,7 +1418,7 @@ function route() {
   if (v === "product") { render(); }
   else {
     setLineColors("boost");
-    document.title = { home: "NŌVAÏ · Une boisson pour chaque moment", story: "NŌVAÏ · Notre histoire", cart: "NŌVAÏ · Panier", where: "NŌVAÏ · Où nous trouver", pack: "NŌVAÏ · Pack découverte", exp: "NŌVAÏ · L’expérience NŌVAÏ" }[v];
+    document.title = { home: "NŌVAÏ · Une boisson pour chaque moment", story: "NŌVAÏ · Notre histoire", cart: "NŌVAÏ · Panier", where: "NŌVAÏ · Où nous trouver", pack: "NŌVAÏ · Pack découverte", exp: "NŌVAÏ · L’expérience NŌVAÏ", vids: "@novai.boissons · Vidéos", pics: "@novai.boissons · Photos" }[v];
     if (v === "cart") renderCart();
   }
   if (target) { const el = document.getElementById(target); if (el) requestAnimationFrame(() => el.scrollIntoView()); }
@@ -1481,7 +1580,60 @@ function renderPackPage() {
 document.getElementById("pkClassicAdd").addEventListener("click", () => addPack(DISC));
 document.querySelectorAll("[data-quiz]").forEach(runQuiz);
 
-renderHome(); renderPackPage(); saveCart(); route(); setNavH();
+
+/* ---------- Nos réseaux ---------- */
+const VIDEOS = [{"f": "moment-boost", "t": "8 h 05, partiel à 9 h", "cap": "Nuit trop courte, partiel dans une heure : BOOST Orange sanguine, l’énergie du guarana sans sucre ajouté. Chaque moment a sa NŌVAÏ.", "link": "boost-orange-sanguine", "serie": "moment"}, {"f": "moment-focus", "t": "21 h, encore trois chapitres", "cap": "Soirée révisions : FOCUS Pomme verte et sa caféine douce venue du thé matcha, pour garder les idées claires.", "link": "focus-pomme-verte", "serie": "moment"}, {"f": "moment-calm", "t": "23 h, on souffle", "cap": "La journée est finie, ta tête pas encore. CALM Myrtille, verveine et tilleul : sans caféine.", "link": "calm-myrtille", "serie": "moment"}, {"f": "moment-recovery", "t": "18 h 30, fin de séance", "cap": "Tu as tout donné. RECOVERY Ananas, mangue et eau de coco, avec du potassium, pour récupérer.", "link": "recovery-ananas", "serie": "moment"}, {"f": "ingredients-boost", "t": "Dans ta BOOST Orange sanguine", "cap": "Six ingrédients, et le rôle de chacun. Qu’est-ce qu’il y a dans ta NŌVAÏ ? On t’explique tout.", "link": "boost-orange-sanguine", "serie": "ingr"}, {"f": "ingredients-calm", "t": "Dans ta CALM Myrtille", "cap": "Cinq ingrédients, zéro caféine. Qu’est-ce qu’il y a dans ta NŌVAÏ CALM ? On t’explique tout.", "link": "calm-myrtille", "serie": "ingr"}];
+const POSTS = [{"f": "01-gamme.jpg", "cap": "Énergie, concentration, détente ou récupération : à chaque moment de ta journée, une NŌVAÏ d’origine naturelle, sans sucre et avec un vrai goût. Laquelle es-tu ?"}, {"f": "02-boost.jpg", "cap": "Le matin avant un partiel, ou le coup de barre de 14 h : BOOST Orange sanguine, gingembre et guarana. La caféine vient du guarana, et il n’y a ni sucre ajouté ni édulcorant."}, {"f": "03-focus.jpg", "cap": "Trois chapitres à finir ce soir ? FOCUS Pomme verte : le thé matcha apporte une caféine plus douce, pour garder les idées claires."}, {"f": "04-calm.jpg", "cap": "Fin de journée, on souffle. CALM Myrtille, verveine et tilleul : sans caféine, pour un vrai moment de pause."}, {"f": "05-recovery.jpg", "cap": "Après la séance : RECOVERY Ananas, mangue et eau de coco, avec du potassium. Bois-la en plus de ton eau, pas à sa place."}, {"f": "06-sans-sucres.jpg", "cap": "Ce qu’il n’y a pas dans ta NŌVAÏ compte autant que ce qu’il y a. Les quelques sucres présents viennent uniquement des jus de fruits. Scanne le QR code de ta bouteille pour voir la composition complète."}, {"f": "07-pack.jpg", "cap": "BOOST, FOCUS, CALM et RECOVERY dans un seul pack : le meilleur moyen de trouver ta NŌVAÏ. Réponds à notre quiz de 5 questions sur le site pour composer un pack à ton goût."}, {"f": "08-prototype.jpg", "cap": "Avant les bouteilles, il y a eu une feuille A4, une paire de ciseaux et beaucoup de retouches. Voici la toute première étiquette de BOOST Orange sanguine."}, {"f": "09-degustation.jpg", "cap": "On arrive sur ton campus pendant les révisions et les partiels : 600 bouteilles à goûter, et on t’explique ce qu’il y a dedans. Scanne le QR code pour profiter de l’offre de lancement."}];
+let vSerie = "all";
+function vList() { return VIDEOS.filter(v => vSerie === "all" || v.serie === vSerie); }
+function renderVids() {
+  document.getElementById("vGrid").innerHTML = vList().map(v => `<button type="button" class="v-cell" data-v="${v.f}" aria-label="Lire la vidéo : ${esc(v.t)}"><img src="media/videos/${v.f}.jpg" alt="" loading="lazy"><span>${esc(v.t)}</span></button>`).join("");
+}
+document.querySelectorAll(".so-tabs button").forEach(b => b.addEventListener("click", () => {
+  vSerie = b.dataset.serie;
+  document.querySelectorAll(".so-tabs button").forEach(x => x.setAttribute("aria-selected", x === b ? "true" : "false"));
+  renderVids();
+}));
+const vp = document.getElementById("vPlayer"), feed = document.getElementById("vpFeed");
+let vObs = null;
+function openPlayer(startF) {
+  feed.innerHTML = vList().map(v => `<div class="vp-item" data-f="${v.f}"><video src="media/videos/${v.f}.mp4" poster="media/videos/${v.f}.jpg" playsinline muted loop preload="metadata"></video>
+    <div class="vp-cap"><b>@novai.boissons · ${esc(v.t)}</b><p>${esc(v.cap)}</p><a href="#${v.link}" data-vclose>Voir la boisson ›</a></div></div>`).join("") + '<span class="vp-hint">Fais défiler ↓</span>';
+  vp.hidden = false; document.body.style.overflow = "hidden";
+  const start = feed.querySelector(`[data-f="${startF}"]`);
+  if (start) feed.scrollTop = start.offsetTop;
+  if (vObs) vObs.disconnect();
+  vObs = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target.querySelector("video");
+    if (e.isIntersecting && e.intersectionRatio > .6) { v.currentTime = 0; v.play().catch(() => {}); } else v.pause();
+  }), { root: feed, threshold: [0, .6, 1] });
+  feed.querySelectorAll(".vp-item").forEach(it => {
+    vObs.observe(it);
+    it.querySelector("video").addEventListener("click", ev => { const v = ev.currentTarget; if (v.paused) v.play().catch(() => {}); else v.pause(); });
+  });
+}
+function closePlayer() { if (vObs) vObs.disconnect(); feed.querySelectorAll("video").forEach(v => v.pause()); feed.innerHTML = ""; vp.hidden = true; document.body.style.overflow = ""; }
+document.getElementById("vGrid").addEventListener("click", e => { const c = e.target.closest("[data-v]"); if (c) openPlayer(c.dataset.v); });
+document.getElementById("vpClose").addEventListener("click", closePlayer);
+feed.addEventListener("click", e => { if (e.target.closest("[data-vclose]")) closePlayer(); });
+
+let pIdx = 0;
+const pv = document.getElementById("pViewer");
+function renderPics() { document.getElementById("pGrid").innerHTML = POSTS.map((p, i) => `<button type="button" class="p-cell" data-p="${i}" aria-label="Ouvrir la publication ${i + 1}"><img src="media/posts/${p.f}" alt="" loading="lazy"></button>`).join(""); }
+function showPic(i) { pIdx = (i + POSTS.length) % POSTS.length; document.getElementById("pvImg").src = "media/posts/" + POSTS[pIdx].f; document.getElementById("pvCap").textContent = POSTS[pIdx].cap; }
+function closePic() { pv.hidden = true; document.body.style.overflow = ""; }
+document.getElementById("pGrid").addEventListener("click", e => { const c = e.target.closest("[data-p]"); if (!c) return; showPic(+c.dataset.p); pv.hidden = false; document.body.style.overflow = "hidden"; });
+pv.querySelectorAll("[data-pclose]").forEach(b => b.addEventListener("click", closePic));
+document.getElementById("pvPrev").addEventListener("click", () => showPic(pIdx - 1));
+document.getElementById("pvNext").addEventListener("click", () => showPic(pIdx + 1));
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") { if (!vp.hidden) closePlayer(); if (!pv.hidden) closePic(); }
+  if (!pv.hidden && e.key === "ArrowRight") showPic(pIdx + 1);
+  if (!pv.hidden && e.key === "ArrowLeft") showPic(pIdx - 1);
+});
+window.addEventListener("hashchange", () => { if (!vp.hidden) closePlayer(); if (!pv.hidden) closePic(); });
+
+renderHome(); renderPackPage(); renderVids(); renderPics(); saveCart(); route(); setNavH();
 </script>
 </body>
 </html>
