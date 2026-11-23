@@ -379,6 +379,10 @@
   .tip p { font-size: .9rem; color: var(--gris); margin-top: 4px; }
   @media (min-width: 640px) { .links { grid-template-columns: 1fr 1fr; } .tips { grid-template-columns: 1fr 1fr; } .qz-a { grid-template-columns: 1fr 1fr; } }
   @media (prefers-reduced-motion: reduce) { .b-circle { transition: none; } .qz-bar i { transition: none; } }
+  .w-taste { background: #FFF4E8; border-radius: 16px; padding: 18px; }
+  .w-taste h2 { margin-top: 6px; } .w-taste p:last-child { margin-top: 8px; font-size: .95rem; }
+  .buy-price small s { opacity: .8; margin-right: 4px; }
+  footer .f-sig { font-weight: 800; color: var(--vert); font-size: .95rem; }
 </style>
 </head>
 <body>
@@ -405,8 +409,8 @@
   <header class="h-hero">
     <div class="wrap">
       <p class="h-eyebrow">Boissons fonctionnelles · 33 cl · verre</p>
-      <h1>Une boisson pour chaque moment de ta journée.</h1>
-      <p class="h-lead">Énergie, concentration, détente, récupération : quatre boissons d’origine naturelle, sans sucres et sans édulcorant, pensées pour les journées qui ne s’arrêtent jamais.</p>
+      <h1>Chaque moment a sa NŌVAÏ.</h1>
+      <p class="h-lead">Énergie, concentration, détente ou récupération : à chaque moment de ta journée, une NŌVAÏ d’origine naturelle, sans sucre et avec un vrai goût.</p>
       <div class="h-cta">
         <a class="btn btn-light" href="#gamme-accueil" data-scroll="gamme-accueil">Choisir ma boisson</a>
         <a class="btn btn-ghost" href="#histoire">Notre histoire</a>
@@ -438,11 +442,11 @@
         <h2>Les quatre, pour trouver la tienne</h2>
         <p>Une bouteille de chaque ligne : BOOST, FOCUS, CALM et RECOVERY. Le meilleur moyen de découvrir celle qui te correspond.</p>
         <div class="price">
-          <div><span class="p-big num">7,99 €</span><span class="p-sm">le pack découverte de 4 bouteilles</span></div>
-          <div class="p-sm">À l’unité : 2,29 € · Pack de 6 du même parfum : 11,99 €</div>
-          <div class="p-launch">Offre de lancement sur le campus : <span class="num">1,99 €</span> la bouteille</div>
+          <div><span class="p-big num">7,96 €</span><span class="p-sm">le pack découverte de 4 bouteilles</span></div>
+          <div class="p-sm">Pack de 6 du même parfum : 11,94 €</div>
+          <div class="p-launch">Offre de lancement : <span class="num">1,99 €</span> la bouteille au lieu de 2,29 €, ici et sur le campus</div>
         </div>
-        <div class="h-cta"><a class="btn btn-dark" href="#pack-decouverte">Composer mon pack</a><button type="button" class="btn btn-line" data-buy="boost-orange-sanguine" data-fmt="disc">Pack classique · 7,99 €</button></div>
+        <div class="h-cta"><a class="btn btn-dark" href="#pack-decouverte">Composer mon pack</a><button type="button" class="btn btn-line" data-buy="boost-orange-sanguine" data-fmt="disc">Pack classique · 7,96 €</button></div>
         <p class="fid">Programme de fidélité : chaque achat te rapporte des points, à échanger contre des réductions.</p>
       </div>
       <div class="pack-box" id="packbox" aria-hidden="true"></div>
@@ -606,7 +610,7 @@
       <div id="bottle"></div>
     </div>
     <div class="chips" id="chips"></div>
-    <div class="buy"><span class="buy-price">2,29 €<small>la bouteille</small></span><button type="button" class="btn btn-light" id="buyBtn">Ajouter au panier</button></div>
+    <div class="buy"><span class="buy-price">1,99 €<small><s>2,29 €</s> prix de lancement</small></span><button type="button" class="btn btn-light" id="buyBtn">Ajouter au panier</button></div>
   </div>
 </header>
 
@@ -639,15 +643,15 @@
       <div class="w-grid">
         <a class="w-card" href="#gamme-accueil">
           <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="16" rx="2"/><path d="M2 26h28"/><path d="M12 14h8"/></svg>
-          <h3>Notre site officiel</h3><p>Commande à l’unité, en pack de 6 ou en pack découverte, directement ici.</p><span class="more">Voir la gamme ›</span>
+          <h3>Notre site officiel</h3><p>À l’unité, en pack de 6 du même parfum ou en pack découverte, avec l’offre de lancement à 1,99 € la bouteille.</p><span class="more">Voir la gamme ›</span>
         </a>
         <div class="w-card">
           <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26" rx="2"/><path d="M11 8h10v9H11z"/><path d="M11 22h4M20 22h1"/></svg>
-          <h3>Ton campus</h3><p>Dans les cafétérias, les corners et les distributeurs automatiques universitaires, entre deux cours.</p>
+          <h3>Ton campus</h3><p>Dans les cafétérias, les corners et les distributeurs automatiques universitaires, entre deux cours. À l’unité, à boire tout de suite.</p>
         </div>
         <div class="w-card">
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12l2-6h20l2 6"/><path d="M6 12v14h20V12"/><path d="M4 12h24"/><path d="M13 26v-7h6v7"/></svg>
-          <h3>Près de chez toi</h3><p>Dans les supérettes et les commerces de proximité, au rayon frais.</p>
+          <h3>Près de chez toi</h3><p>Dans les supérettes et les commerces de proximité, à l’unité au rayon boissons. Les packs arrivent bientôt.</p>
         </div>
       </div>
     </section>
@@ -660,6 +664,13 @@
         <li><b>Les magasins bio et de produits naturels</b><span>pour qui veut une composition simple</span></li>
         <li><b>Les salles de sport</b><span>avec NŌVAÏ RECOVERY en tête</span></li>
       </ul>
+    </section>
+    <section class="w-sec">
+      <div class="w-taste">
+        <p class="h-eyebrow dark">Viens la goûter</p>
+        <h2>Des dégustations sur ton campus</h2>
+        <p>Pendant les périodes de révisions et de partiels, on installe un stand de dégustation sur le campus. Tu goûtes, on t’explique ce qu’il y a dans chaque bouteille, et tu repars avec le QR code pour profiter de l’offre de lancement.</p>
+      </div>
     </section>
     <section class="w-sec">
       <div class="w-note">
@@ -679,7 +690,7 @@
       <p class="h-eyebrow">Pack découverte</p>
       <h1>Quatre bouteilles pour trouver la tienne.</h1>
       <p class="h-lead">Une bouteille de chaque ligne : BOOST, FOCUS, CALM et RECOVERY. Prends le pack classique, ou réponds à cinq questions pour composer un pack à ton goût.</p>
-      <div class="pk-price"><span class="p-big num">7,99 €</span><span>les 4 bouteilles, soit 1,99 € la bouteille au lieu de 2,29 €</span></div>
+      <div class="pk-price"><span class="p-big num">7,96 €</span><span>les 4 bouteilles, soit 1,99 € la bouteille au lieu de 2,29 €</span></div>
     </div>
   </header>
   <div class="wrap">
@@ -687,7 +698,7 @@
       <h2>Le pack classique</h2>
       <p class="lead">Le parfum phare de chaque ligne.</p>
       <div class="pk-row" id="pkClassic"></div>
-      <div class="h-cta"><button type="button" class="btn btn-dark" id="pkClassicAdd">Ajouter le pack classique · 7,99 €</button></div>
+      <div class="h-cta"><button type="button" class="btn btn-dark" id="pkClassicAdd">Ajouter le pack classique · 7,96 €</button></div>
     </section>
 
     <section class="w-sec" id="pkQuizSec">
@@ -814,6 +825,8 @@
 <footer>
   <div class="wrap">
     <p class="wm">NŌVAÏ</p>
+    <p class="f-sig">Chaque moment a sa NŌVAÏ.</p>
+    <p>Suis-nous sur Instagram et TikTok : <strong>@novai.boissons</strong></p>
     <p>NŌVAÏ SAS, 06000 Nice, France.</p>
     <p>Projet étudiant réalisé dans le cadre d’un TD de marketing (ESDHEM). La marque, les produits, les recettes et les origines présentés sont fictifs.</p>
   </div>
@@ -823,7 +836,7 @@
 const LINES = {
   boost:    { name: "BOOST",    need: "L’énergie",        benefit: "Un coup d’énergie naturel",   c: ["#F59A32", "#EE7A22", "#D9432B"], tint: "#FFF4E8", word: "L’énergie" },
   focus:    { name: "FOCUS",    need: "La concentration", benefit: "Pour rester concentré",       c: ["#5AA5EE", "#3F7FD0", "#2A55A8"], tint: "#EAF2FC", word: "La concentration" },
-  calm:     { name: "CALM",     need: "La détente",       benefit: "Un moment de détente",        c: ["#B08CE4", "#8E62C9", "#653FA8"], tint: "#F2ECFA", word: "La sérénité" },
+  calm:     { name: "CALM",     need: "La détente",       benefit: "Un moment de détente",        c: ["#B08CE4", "#8E62C9", "#653FA8"], tint: "#F2ECFA", word: "Le calme" },
   recovery: { name: "RECOVERY", need: "L’hydratation",    benefit: "Hydratation et récupération", c: ["#5FC57E", "#3E9E5C", "#2B7A45"], tint: "#EAF6EE", word: "La récupération" }
 };
 
@@ -1098,7 +1111,7 @@ function render() {
   </section>
 
   <section id="composition">
-    <h2>Composition</h2>
+    <h2>Qu’est-ce qu’il y a dans ta NŌVAÏ&nbsp;?</h2>
     <p class="lead">Les ${p.ings.length} ingrédients, dans l’ordre de la liste : du plus présent au moins présent. Pour chacun, ce qu’il fait dans ta bouteille.</p>
     <div class="ings">${ingHTML}</div>
     <div class="nope"><span>0 sucre ajouté</span><span>0 édulcorant</span><span>0 colorant</span><span>0 conservateur</span></div>
@@ -1162,8 +1175,9 @@ document.querySelectorAll("nav.toc button").forEach(b => b.addEventListener("cli
 }));
 
 /* ---------- Boutique ---------- */
-/* Prix d'après le TD5 (partie Prix) : 2,29 € la bouteille ; packs calculés sur le prix de lancement de 1,99 € (pack découverte = 4 × 1,99 €, pack de 6 ≈ 2,00 € la bouteille). */
-const PRICE = { unit: 2.29, six: 11.99, disc: 7.99 };
+/* Prix d'après le TD5 (partie Prix) : 2,29 € la bouteille ; packs = prix de lancement de 1,99 € la bouteille (4 × 1,99 € et 6 × 1,99 €). */
+const LIST_PRICE = 2.29; /* prix public (TD5) */
+const PRICE = { unit: 1.99, six: 11.94, disc: 7.96 }; /* packs = 6 × 1,99 € et 4 × 1,99 € : le prix de lancement reste le prix des packs */ /* unité au prix de lancement 1,99 € (TD5, sur le site d’après le TD6) */
 const DISC = ["boost-orange-sanguine", "focus-pomme-verte", "calm-myrtille", "recovery-ananas"];
 const FMT_LABEL = { unit: "À l’unité", six: "Pack de 6", disc: "Pack découverte" };
 const MOMENTS = {
@@ -1202,9 +1216,9 @@ function openBuy(id, fmt) {
   document.getElementById("mTitle").textContent = buyProduct.flavour;
   document.getElementById("mSub").textContent = buyProduct.sub;
   document.getElementById("sixLabel").textContent = `6 bouteilles ${L.name} ${buyProduct.flavour}`;
-  document.getElementById("pUnit").textContent = eur(PRICE.unit);
-  document.getElementById("pSix").innerHTML = `<s>${eur(PRICE.unit * 6)}</s>${eur(PRICE.six)}`;
-  document.getElementById("pDisc").innerHTML = `<s>${eur(PRICE.unit * 4)}</s>${eur(PRICE.disc)}`;
+  document.getElementById("pUnit").innerHTML = `<s>${eur(LIST_PRICE)}</s>${eur(PRICE.unit)}`;
+  document.getElementById("pSix").innerHTML = `<s>${eur(LIST_PRICE * 6)}</s>${eur(PRICE.six)}`;
+  document.getElementById("pDisc").innerHTML = `<s>${eur(LIST_PRICE * 4)}</s>${eur(PRICE.disc)}`;
   modal.querySelector(`input[value="${fmt || "unit"}"]`).checked = true;
   qty = 1; refreshModal();
   lastFocus = document.activeElement;
