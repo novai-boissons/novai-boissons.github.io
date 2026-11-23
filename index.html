@@ -325,6 +325,60 @@
   .w-note { background: #F6F2EA; border-radius: 16px; padding: 18px; border-left: 4px solid var(--vert); }
   .w-note p { margin-top: 6px; font-size: .94rem; }
   @media (min-width: 640px) { .w-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* ---------- Pack découverte & expérience ---------- */
+  .pk-hero { background: linear-gradient(135deg, #2E5A46 0%, var(--vert) 70%); }
+  .ex-hero { background: linear-gradient(135deg, #3B2E66 0%, var(--vert) 75%); }
+  .pk-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-top: 18px; }
+  .pk-price .p-big { color: #fff; }
+  .pk-price span:last-child { opacity: .85; font-size: .92rem; }
+  .pk-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px; }
+  .pk-item { display: grid; justify-items: center; text-align: center; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--filet); border-radius: 14px; padding: 12px 4px 10px; }
+  .pk-item .bottle { width: 100%; max-width: 64px; filter: none; }
+  .pk-l { font-weight: 800; font-size: .62rem; letter-spacing: .12em; margin-top: 6px; }
+  .pk-f { font-size: .78rem; font-weight: 600; color: var(--vert); line-height: 1.25; }
+  .btn-line { background: transparent; border-color: var(--vert); color: var(--vert); }
+  .quiz { margin-top: 16px; background: #fff; border: 1px solid var(--filet); border-radius: 20px; padding: 18px; }
+  .qz-top { display: grid; gap: 8px; }
+  .qz-step { font-size: .78rem; font-weight: 700; color: var(--gris); letter-spacing: .04em; }
+  .qz-bar { height: 6px; border-radius: 999px; background: #EEF0EE; overflow: hidden; }
+  .qz-bar i { display: block; height: 100%; background: var(--vert-doux); border-radius: 999px; transition: width .25s; }
+  .qz-q { font-size: 1.2rem; margin-top: 16px; }
+  .qz-a { display: grid; gap: 8px; margin-top: 14px; }
+  .qz-opt { font: inherit; text-align: left; font-weight: 600; font-size: .95rem; color: var(--vert); background: var(--fond); border: 2px solid var(--filet); border-radius: 14px; padding: 13px 14px; cursor: pointer; }
+  .qz-opt:hover, .qz-opt:focus-visible { border-color: var(--vert-doux); background: #EEF5EF; outline: none; }
+  .qz-back { margin-top: 12px; font: inherit; font-size: .86rem; font-weight: 600; color: var(--gris); background: none; border: none; cursor: pointer; padding: 6px 0; }
+  .qz-res { display: grid; grid-template-columns: 70px 1fr; gap: 16px; align-items: start; }
+  .qz-res.pk-res { grid-template-columns: 1fr; }
+  .qr-bottle .bottle { width: 70px; filter: none; }
+  .qr-tag { font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--rc, var(--vert-doux)); }
+  .qr-txt h3 { font-size: 1.4rem; margin-top: 4px; }
+  .qr-txt > p { margin-top: 8px; font-size: .95rem; }
+  .qr-pick { color: var(--vert); }
+  .breath { margin-top: 16px; background: #fff; border: 1px solid var(--filet); border-radius: 20px; padding: 20px; display: grid; gap: 16px; justify-items: center; text-align: center; }
+  .b-stage { position: relative; width: 200px; height: 200px; display: grid; place-items: center; }
+  .b-circle { position: absolute; inset: 0; margin: auto; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #C9B4EE, #8E62C9); transition: transform 5s ease-in-out; transform: scale(1); }
+  .b-circle.in { transform: scale(2.1); }
+  .b-label { position: relative; font-weight: 800; font-size: 1.05rem; color: #fff; text-shadow: 0 1px 6px rgba(60,30,110,.5); }
+  .b-ctrl { display: flex; align-items: center; gap: 16px; }
+  .b-time { font-weight: 800; font-size: 1.3rem; color: var(--vert); min-width: 54px; }
+  .b-note { font-size: .86rem; color: var(--gris); max-width: 46ch; }
+  .links { display: grid; gap: 10px; margin-top: 16px; }
+  .lk { display: grid; gap: 4px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--filet); border-radius: 16px; padding: 14px 16px; }
+  .lk:hover, .lk:focus-visible { border-color: var(--vert-doux); outline: none; }
+  .lk b { color: var(--vert); font-size: 1rem; }
+  .lk b::after { content: " ↗"; color: var(--gris); font-weight: 600; }
+  .lk > span:last-child { font-size: .88rem; color: var(--gris); }
+  .lk-tag { justify-self: start; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
+  .t-calm { background: #F2ECFA; color: #653FA8; } .t-focus { background: #EAF2FC; color: #2A55A8; } .t-rec { background: #EAF6EE; color: #2B7A45; }
+  .tips { display: grid; gap: 12px; margin-top: 16px; }
+  .tip { background: #fff; border: 1px solid var(--filet); border-top: 4px solid var(--tc); border-radius: 16px; padding: 16px; }
+  .tip svg { width: 38px; height: 38px; fill: none; stroke: var(--tc); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .tip-l { display: block; font-size: .7rem; font-weight: 800; letter-spacing: .14em; color: var(--tc); margin-top: 8px; }
+  .tip h3 { font-size: 1.02rem; margin-top: 2px; }
+  .tip p { font-size: .9rem; color: var(--gris); margin-top: 4px; }
+  @media (min-width: 640px) { .links { grid-template-columns: 1fr 1fr; } .tips { grid-template-columns: 1fr 1fr; } .qz-a { grid-template-columns: 1fr 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .b-circle { transition: none; } .qz-bar i { transition: none; } }
 </style>
 </head>
 <body>
@@ -334,6 +388,8 @@
     <div class="site-links">
       <a href="#" data-nav="home">Accueil</a>
       <a href="#gamme-accueil" data-nav="gamme">Gamme</a>
+      <a href="#pack-decouverte" data-nav="pack">Pack découverte</a>
+      <a href="#experience" data-nav="exp">L’expérience NŌVAÏ</a>
       <a href="#histoire" data-nav="story">Histoire</a>
       <a href="#ou-nous-trouver" data-nav="where">Où nous trouver</a>
     </div>
@@ -366,7 +422,7 @@
   </section>
 
   <section class="wrap h-sec">
-    <h2>Ce qu’on t’a promis</h2>
+    <h2>Nos promesses</h2>
     <div class="promises">
       <div class="promise"><b>0 g</b><h3>Sans sucres, sans édulcorant</h3><p>Moins de 0,5 g de sucres pour 100 ml, venus uniquement des fruits. Et aucun sucre de remplacement.</p></div>
       <div class="promise"><b>QR</b><h3>Une composition qu’on comprend</h3><p>Peu d’ingrédients, et le rôle de chacun expliqué. Scanne le QR code de ta bouteille pour tout savoir.</p></div>
@@ -382,11 +438,11 @@
         <h2>Les quatre, pour trouver la tienne</h2>
         <p>Une bouteille de chaque ligne : BOOST, FOCUS, CALM et RECOVERY. Le meilleur moyen de découvrir celle qui te correspond.</p>
         <div class="price">
-          <div><span class="p-big num">8,99 €</span><span class="p-sm">le pack découverte de 4 bouteilles</span></div>
-          <div class="p-sm">À l’unité : 2,29 € · Pack de 6 du même parfum : 12,99 €</div>
+          <div><span class="p-big num">7,99 €</span><span class="p-sm">le pack découverte de 4 bouteilles</span></div>
+          <div class="p-sm">À l’unité : 2,29 € · Pack de 6 du même parfum : 11,99 €</div>
           <div class="p-launch">Offre de lancement sur le campus : <span class="num">1,99 €</span> la bouteille</div>
         </div>
-        <div class="h-cta"><button type="button" class="btn btn-dark" data-buy="boost-orange-sanguine" data-fmt="disc">Ajouter le pack découverte</button></div>
+        <div class="h-cta"><a class="btn btn-dark" href="#pack-decouverte">Composer mon pack</a><button type="button" class="btn btn-line" data-buy="boost-orange-sanguine" data-fmt="disc">Pack classique · 7,99 €</button></div>
         <p class="fid">Programme de fidélité : chaque achat te rapporte des points, à échanger contre des réductions.</p>
       </div>
       <div class="pack-box" id="packbox" aria-hidden="true"></div>
@@ -483,22 +539,9 @@
       </figure>
     </article>
 
-    <article class="chap">
-      <div class="chap-n">04</div>
-      <div class="chap-body">
-        <h2>NOVA, puis NŌVAÏ</h2>
-        <p>Au départ, la marque s’appelait NOVA : deux syllabes, une idée de nouveauté et de clarté d’esprit. Problème : le nom était déjà déposé.</p>
-        <p>Plutôt que de tout recommencer, nous l’avons transformé. Un trait sur le O, un tréma sur le I : <strong>NŌVAÏ</strong> garde l’esprit du nom d’origine tout en étant unique. Une recherche à l’INPI nous a confirmé qu’il était libre.</p>
-      </div>
-      <figure class="chap-fig name">
-        <span class="old">NOVA</span>
-        <span class="arrow">↓</span>
-        <span class="new">NŌVAÏ</span>
-      </figure>
-    </article>
 
     <article class="chap">
-      <div class="chap-n">05</div>
+      <div class="chap-n">04</div>
       <div class="chap-body">
         <h2>Le choix du verre</h2>
         <p>Les boissons énergisantes sont presque toutes vendues en canette. Nous avons choisi le verre : il préserve le goût, il donne envie, et il se recycle sans fin. Notre bouteille est fabriquée en verre recyclé, et son bouchon se revisse pour la finir plus tard.</p>
@@ -519,7 +562,7 @@
     </article>
 
     <article class="chap">
-      <div class="chap-n">06</div>
+      <div class="chap-n">05</div>
       <div class="chap-body">
         <h2>Le premier prototype</h2>
         <p>Un croquis, puis une maquette : nous avons dessiné l’étiquette, l’avons imprimée sur une simple feuille A4 et collée sur une bouteille. Nous l’avons ensuite montrée à des personnes de notre cible pour recueillir leurs avis.</p>
@@ -532,7 +575,7 @@
     </article>
 
     <article class="chap last">
-      <div class="chap-n">07</div>
+      <div class="chap-n">06</div>
       <div class="chap-body">
         <h2>Et maintenant&nbsp;?</h2>
         <p>NŌVAÏ n’est pas juste une boisson. C’est une gamme qui s’adapte à ta journée, avec une composition que tu peux lire et comprendre. Pour la découvrir, nous lançons un pack réunissant les quatre lignes, une offre de lancement sur le campus et un programme de fidélité.</p>
@@ -624,6 +667,90 @@
         <p>Nous n’ouvrons pas de magasins en propre. Notre idée : être là où tu étudies, travailles et fais tes courses, sans détour.</p>
       </div>
       <div class="h-cta"><a class="btn btn-dark" href="#gamme-accueil">Commander en ligne</a></div>
+    </section>
+  </div>
+</div>
+
+
+<!-- ========== PACK DÉCOUVERTE ========== -->
+<div id="pack" class="view">
+  <header class="s-hero pk-hero">
+    <div class="wrap">
+      <p class="h-eyebrow">Pack découverte</p>
+      <h1>Quatre bouteilles pour trouver la tienne.</h1>
+      <p class="h-lead">Une bouteille de chaque ligne : BOOST, FOCUS, CALM et RECOVERY. Prends le pack classique, ou réponds à cinq questions pour composer un pack à ton goût.</p>
+      <div class="pk-price"><span class="p-big num">7,99 €</span><span>les 4 bouteilles, soit 1,99 € la bouteille au lieu de 2,29 €</span></div>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="w-sec">
+      <h2>Le pack classique</h2>
+      <p class="lead">Le parfum phare de chaque ligne.</p>
+      <div class="pk-row" id="pkClassic"></div>
+      <div class="h-cta"><button type="button" class="btn btn-dark" id="pkClassicAdd">Ajouter le pack classique · 7,99 €</button></div>
+    </section>
+
+    <section class="w-sec" id="pkQuizSec">
+      <h2>Compose ton pack en 5 questions</h2>
+      <p class="lead">On choisit pour toi le parfum de chaque ligne qui correspond le mieux à tes goûts.</p>
+      <div class="quiz" id="pkQuiz" data-quiz="pack"></div>
+    </section>
+  </div>
+</div>
+
+<!-- ========== L'EXPÉRIENCE NŌVAÏ ========== -->
+<div id="exp" class="view">
+  <header class="s-hero ex-hero">
+    <div class="wrap">
+      <p class="h-eyebrow">L’expérience NŌVAÏ</p>
+      <h1>Pousse l’expérience jusqu’au bout.</h1>
+      <p class="h-lead">Trouve la boisson qui colle à ton humeur, prends cinq minutes pour respirer, lance une musique pour travailler ou te détendre.</p>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="w-sec">
+      <div class="w-head"><h2>Quelle NŌVAÏ te ressemble aujourd’hui&nbsp;?</h2></div>
+      <p class="lead">Cinq questions sur ton humeur et ta journée. Ta réponse change selon le moment : refais-le quand tu veux.</p>
+      <div class="quiz" id="moodQuiz" data-quiz="mood"></div>
+    </section>
+
+    <section class="w-sec">
+      <h2>Respire 5 minutes</h2>
+      <p class="lead">La cohérence cardiaque, c’est la méthode « 365 » : 3 fois par jour, 6 respirations par minute, pendant 5 minutes. Suis le cercle : il grossit quand tu inspires, rétrécit quand tu expires.</p>
+      <div class="breath">
+        <div class="b-stage"><div class="b-circle" id="bCircle"></div><div class="b-label" id="bLabel">Prêt&nbsp;?</div></div>
+        <div class="b-ctrl">
+          <span class="b-time num" id="bTime">5:00</span>
+          <button type="button" class="btn btn-dark" id="bBtn">Commencer</button>
+        </div>
+        <p class="b-note">Inspire 5 secondes par le nez, expire 5 secondes par la bouche. Un bon moment pour une NŌVAÏ CALM.</p>
+      </div>
+    </section>
+
+    <section class="w-sec">
+      <h2>Méditer et écouter</h2>
+      <p class="lead">Notre sélection pour méditer, travailler en musique ou souffler. Les liens s’ouvrent sur les sites ou les applications concernés.</p>
+      <div class="links">
+        <a class="lk" href="https://www.petitbambou.com/meditation" target="_blank" rel="noopener"><span class="lk-tag t-calm">Méditation</span><b>Petit BamBou</b><span>L’application de méditation francophone de référence, avec des séances guidées gratuites.</span></a>
+        <a class="lk" href="https://www.youtube.com/results?search_query=m%C3%A9ditation+guid%C3%A9e+10+minutes" target="_blank" rel="noopener"><span class="lk-tag t-calm">Vidéo</span><b>Méditations guidées de 10 minutes</b><span>Une sélection de séances courtes sur YouTube, parfaites entre deux cours.</span></a>
+        <a class="lk" href="https://www.youtube.com/results?search_query=coh%C3%A9rence+cardiaque+5+minutes" target="_blank" rel="noopener"><span class="lk-tag t-calm">Vidéo</span><b>Cohérence cardiaque guidée</b><span>Des vidéos de 5 minutes pour respirer au bon rythme, sans compter.</span></a>
+        <a class="lk" href="https://lofigirl.com/" target="_blank" rel="noopener"><span class="lk-tag t-focus">Musique</span><b>Lofi Girl</b><span>La radio lofi hip hop pour travailler et réviser, en continu sur YouTube.</span></a>
+        <a class="lk" href="https://insighttimer.com/playlists/sav4SCPs0jz34KyFUExv" target="_blank" rel="noopener"><span class="lk-tag t-calm">Musique</span><b>Piano relaxant</b><span>Une playlist de piano doux sur Insight Timer, pour se poser.</span></a>
+        <a class="lk" href="https://music.amazon.com/playlists/B00KMI3FN4" target="_blank" rel="noopener"><span class="lk-tag t-calm">Musique</span><b>Relaxing Piano</b><span>Dix heures de piano calme, sur Amazon Music.</span></a>
+        <a class="lk" href="https://www.youtube.com/results?search_query=musique+m%C3%A9ditation+relaxation" target="_blank" rel="noopener"><span class="lk-tag t-calm">Vidéo</span><b>Musique de méditation</b><span>Des heures de musique douce et de sons de la nature sur YouTube.</span></a>
+        <a class="lk" href="https://www.youtube.com/results?search_query=musique+pour+courir+motivation" target="_blank" rel="noopener"><span class="lk-tag t-rec">Musique</span><b>Musique pour le sport</b><span>De quoi tenir le rythme pendant ta séance.</span></a>
+      </div>
+    </section>
+
+    <section class="w-sec">
+      <h2>Nos petits conseils</h2>
+      <p class="lead">Une boisson ne fait pas tout. Voici ce qui marche avec chaque moment de ta journée.</p>
+      <div class="tips">
+        <div class="tip" style="--tc:#EE7A22"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="10"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11 11l3.5 3.5M33.5 33.5L37 37M11 37l3.5-3.5M33.5 14.5L37 11"/></svg><span class="tip-l">BOOST</span><h3>Le coup de barre de 14 h</h3><p>Avant de boire, lève-toi et marche quelques minutes à la lumière du jour. Le corps se réveille aussi en bougeant.</p></div>
+        <div class="tip" style="--tc:#3F7FD0"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="26" r="14"/><path d="M24 26V17M24 26l6 4M20 6h8"/></svg><span class="tip-l">FOCUS</span><h3>Réviser par blocs</h3><p>25 minutes de travail, 5 minutes de pause, et on recommence : c’est la méthode Pomodoro. Téléphone hors de portée pendant les blocs.</p></div>
+        <div class="tip" style="--tc:#8E62C9"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 8a16 16 0 1 0 10 26A14 14 0 0 1 30 8z"/></svg><span class="tip-l">CALM</span><h3>Décrocher le soir</h3><p>Éloigne les écrans un moment avant de dormir, et fais une séance de respiration de 5 minutes. NŌVAÏ CALM est sans caféine.</p></div>
+        <div class="tip" style="--tc:#3E9E5C"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c8 10 12 16 12 22a12 12 0 0 1-24 0c0-6 4-12 12-22z"/></svg><span class="tip-l">RECOVERY</span><h3>Boire avant d’avoir soif</h3><p>Pendant le sport, bois par petites gorgées régulières. NŌVAÏ RECOVERY complète l’eau, elle ne la remplace pas.</p></div>
+      </div>
     </section>
   </div>
 </div>
@@ -1035,8 +1162,8 @@ document.querySelectorAll("nav.toc button").forEach(b => b.addEventListener("cli
 }));
 
 /* ---------- Boutique ---------- */
-/* Prix de départ, d'après le TD5 (partie Prix) : 2,29 € la bouteille. Prix des packs à valider avec le groupe. */
-const PRICE = { unit: 2.29, six: 12.99, disc: 8.99 };
+/* Prix d'après le TD5 (partie Prix) : 2,29 € la bouteille ; packs calculés sur le prix de lancement de 1,99 € (pack découverte = 4 × 1,99 €, pack de 6 ≈ 2,00 € la bouteille). */
+const PRICE = { unit: 2.29, six: 11.99, disc: 7.99 };
 const DISC = ["boost-orange-sanguine", "focus-pomme-verte", "calm-myrtille", "recovery-ananas"];
 const FMT_LABEL = { unit: "À l’unité", six: "Pack de 6", disc: "Pack découverte" };
 const MOMENTS = {
@@ -1049,7 +1176,7 @@ const eur = n => n.toLocaleString("fr-FR", { style: "currency", currency: "EUR" 
 const byId = id => P.find(x => x.id === id);
 
 let cart = [];
-try { cart = JSON.parse(localStorage.getItem("novai-cart") || "[]").filter(i => i && PRICE[i.fmt] && i.qty > 0); } catch (e) { cart = []; }
+try { cart = JSON.parse(localStorage.getItem("novai-cart") || "[]").filter(i => i && PRICE[i.fmt] && i.qty > 0 && (i.fmt === "disc" || byId(i.id))); } catch (e) { cart = []; }
 function saveCart() {
   try { localStorage.setItem("novai-cart", JSON.stringify(cart)); } catch (e) {}
   const n = cart.reduce((s, i) => s + i.qty, 0);
@@ -1096,7 +1223,8 @@ document.getElementById("qMinus").addEventListener("click", () => { if (qty > 1)
 document.getElementById("qPlus").addEventListener("click", () => { if (qty < 99) { qty++; refreshModal(); } });
 document.getElementById("mAdd").addEventListener("click", () => {
   const f = fmtNow();
-  const id = f === "disc" ? "pack-decouverte" : buyProduct.id;
+  if (f === "disc") { addPack(DISC, qty); closeBuy(); return; }
+  const id = buyProduct.id;
   const found = cart.find(i => i.id === id && i.fmt === f);
   if (found) found.qty = Math.min(99, found.qty + qty); else cart.push({ id, fmt: f, qty });
   saveCart(); closeBuy();
@@ -1120,9 +1248,10 @@ function renderCart() {
   document.getElementById("cartSum").hidden = n === 0;
   document.getElementById("checkoutMsg").textContent = "";
   list.innerHTML = cart.map((i, k) => {
-    const p = i.fmt === "disc" ? byId(DISC[0]) : byId(i.id);
-    const name = i.fmt === "disc" ? "Pack découverte" : `${LINES[p.line].name} ${p.flavour}`;
-    const fmt = i.fmt === "disc" ? "BOOST Orange sanguine, FOCUS Pomme verte, CALM Myrtille, RECOVERY Ananas" : (i.fmt === "six" ? "Pack de 6 bouteilles de 33 cl" : "Bouteille de 33 cl");
+    const ids = i.fmt === "disc" ? (Array.isArray(i.pack) && i.pack.every(byId) ? i.pack : DISC) : null;
+    const p = ids ? byId(ids[0]) : byId(i.id);
+    const name = ids ? "Pack découverte" : `${LINES[p.line].name} ${p.flavour}`;
+    const fmt = ids ? ids.map(x => `${LINES[byId(x).line].name} ${byId(x).flavour}`).join(", ") : (i.fmt === "six" ? "Pack de 6 bouteilles de 33 cl" : "Bouteille de 33 cl");
     return `<div class="c-item"><div>${bottleSVG(p, "-c" + k)}</div>
       <div><h3>${esc(name)}</h3><div class="c-fmt">${esc(fmt)} · ${eur(PRICE[i.fmt])}</div>
         <div class="c-ctrl"><div class="stepper"><button type="button" data-k="${k}" data-d="-1" aria-label="Retirer un"${i.qty <= 1 ? " disabled" : ""}>−</button><output>${i.qty}</output><button type="button" data-k="${k}" data-d="1" aria-label="Ajouter un">+</button></div>
@@ -1163,18 +1292,20 @@ function route() {
   if (h === "histoire") v = "story";
   else if (h === "panier") v = "cart";
   else if (h === "ou-nous-trouver") v = "where";
+  else if (h === "pack-decouverte") v = "pack";
+  else if (h === "experience") v = "exp";
   else if (byId(h)) v = "product";
   else if (h === "gamme-accueil") target = "gamme-accueil";
-  document.querySelectorAll(".view").forEach(el => el.classList.toggle("on", el.id === { home: "home", story: "story", cart: "cart", where: "where" }[v]));
+  document.querySelectorAll(".view").forEach(el => el.classList.toggle("on", el.id === { home: "home", story: "story", cart: "cart", where: "where", pack: "pack", exp: "exp" }[v]));
   document.querySelectorAll(".pview").forEach(el => el.classList.toggle("off", v !== "product"));
   document.querySelectorAll(".site-links a, .cart-link").forEach(a => {
-    const on = (a.dataset.nav === "home" && v === "home" && !target) || (a.dataset.nav === "gamme" && target) || (a.dataset.nav === "story" && v === "story") || (a.dataset.nav === "cart" && v === "cart") || (a.dataset.nav === "where" && v === "where");
+    const on = (a.dataset.nav === "home" && v === "home" && !target) || (a.dataset.nav === "gamme" && target) || (a.dataset.nav === "story" && v === "story") || (a.dataset.nav === "cart" && v === "cart") || (a.dataset.nav === "where" && v === "where") || (a.dataset.nav === "pack" && v === "pack") || (a.dataset.nav === "exp" && v === "exp");
     if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
   if (v === "product") { render(); }
   else {
     setLineColors("boost");
-    document.title = { home: "NŌVAÏ · Une boisson pour chaque moment", story: "NŌVAÏ · Notre histoire", cart: "NŌVAÏ · Panier", where: "NŌVAÏ · Où nous trouver" }[v];
+    document.title = { home: "NŌVAÏ · Une boisson pour chaque moment", story: "NŌVAÏ · Notre histoire", cart: "NŌVAÏ · Panier", where: "NŌVAÏ · Où nous trouver", pack: "NŌVAÏ · Pack découverte", exp: "NŌVAÏ · L’expérience NŌVAÏ" }[v];
     if (v === "cart") renderCart();
   }
   if (target) { const el = document.getElementById(target); if (el) requestAnimationFrame(() => el.scrollIntoView()); }
@@ -1195,7 +1326,148 @@ document.getElementById("buyBtn").addEventListener("click", () => {
 window.addEventListener("hashchange", route);
 function setNavH() { const n = document.querySelector("nav.site"); if (n) document.documentElement.style.setProperty("--navh", n.offsetHeight + "px"); }
 window.addEventListener("resize", setNavH);
-renderHome(); saveCart(); route(); setNavH();
+
+/* ---------- Quiz ---------- */
+const QUIZZES = {
+  mood: [
+    { q: "Comment tu te sens, là, maintenant ?", a: [
+      ["Fatigué, au ralenti", { boost: 2 }], ["Dispersé, j’ai du mal à me concentrer", { focus: 2 }],
+      ["Tendu, un peu stressé", { calm: 2 }], ["Essoufflé, je sors d’un effort", { recovery: 2 }] ] },
+    { q: "Qu’est-ce qui t’attend dans les prochaines heures ?", a: [
+      ["Une longue journée ou un trajet", { boost: 2 }], ["Des révisions, un dossier, un partiel", { focus: 2 }],
+      ["Une soirée tranquille", { calm: 2 }], ["Une séance de sport", { recovery: 2 }] ] },
+    { q: "On est à quel moment de ta journée ?", a: [
+      ["Le matin", { boost: 1, focus: 1 }], ["Juste après le déjeuner", { boost: 2 }],
+      ["Fin d’après-midi", { recovery: 1, focus: 1 }], ["Le soir", { calm: 2 }] ] },
+    { q: "Et la caféine, en ce moment ?", a: [
+      ["J’en ai besoin pour démarrer", { boost: 2 }], ["Une petite dose me suffit", { focus: 2 }],
+      ["Je préfère éviter", { calm: 1, recovery: 1 }], ["Je veux surtout m’hydrater", { recovery: 2 }] ] },
+    { q: "Ce dont tu as le plus envie :", a: [
+      ["Un coup de fouet", { boost: 2 }], ["Avoir les idées claires", { focus: 2 }],
+      ["Souffler un peu", { calm: 2 }], ["Récupérer", { recovery: 2 }] ] }
+  ],
+  pack: [
+    { q: "Tes fruits préférés ?", a: [
+      ["Les agrumes : orange, citron", { "boost-orange-sanguine": 2, "focus-citron": 1, "recovery-citron-vert": 1 }],
+      ["Les fruits rouges", { "boost-fruits-rouges": 2, "calm-framboise": 1, "calm-myrtille": 1 }],
+      ["Les fruits exotiques : ananas, mangue", { "boost-ananas": 2, "recovery-ananas": 1 }],
+      ["Les fruits doux : pomme, framboise", { "boost-framboise": 2, "focus-pomme-verte": 1, "calm-framboise": 1 }] ] },
+    { q: "Côté goût, tu es plutôt…", a: [
+      ["Acidulé et vif", { "boost-ananas": 1, "focus-citron": 1, "recovery-citron-vert": 1 }],
+      ["Doux et fruité", { "boost-fruits-rouges": 1, "calm-myrtille": 1, "recovery-ananas": 1 }],
+      ["Végétal, comme le thé", { "focus-pomme-verte": 2, "calm-myrtille": 1 }],
+      ["Épicé, avec du gingembre", { "boost-orange-sanguine": 1, "boost-framboise": 1 }] ] },
+    { q: "Pour te concentrer, tu choisirais…", a: [
+      ["Pomme verte et thé matcha", { "focus-pomme-verte": 3 }],
+      ["Citron et thé vert", { "focus-citron": 3 }] ] },
+    { q: "Pour te détendre le soir…", a: [
+      ["Framboise, mélisse et camomille", { "calm-framboise": 3 }],
+      ["Myrtille, verveine et tilleul", { "calm-myrtille": 3 }] ] },
+    { q: "Après le sport, plutôt…", a: [
+      ["Ananas, mangue et eau de coco", { "recovery-ananas": 3 }],
+      ["Citron vert, menthe et eau de coco", { "recovery-citron-vert": 3 }] ] }
+  ]
+};
+const PERSONA = {
+  boost:    { name: "L’Énergique", text: "Tu as besoin d’un vrai coup de fouet pour tenir le rythme. NŌVAÏ BOOST te donne de l’énergie grâce à la caféine du guarana, sans sucres." },
+  focus:    { name: "Le Stratège", text: "Tu as des choses à faire et tu veux garder les idées claires. NŌVAÏ FOCUS t’accompagne avec une caféine plus douce, venue du thé." },
+  calm:     { name: "L’Esprit zen", text: "Tu as besoin de ralentir et de souffler. NŌVAÏ CALM est sans caféine, avec des plantes d’infusion pour un vrai moment de pause." },
+  recovery: { name: "L’Athlète", text: "Tu bouges, tu transpires, tu as besoin de récupérer. NŌVAÏ RECOVERY t’hydrate avec de l’eau de coco et du potassium." }
+};
+
+function runQuiz(el) {
+  const name = el.dataset.quiz, qs = QUIZZES[name];
+  let i = 0, score = {};
+  function draw() {
+    if (i >= qs.length) { (name === "mood" ? moodResult : packResult)(el, score, restart); return; }
+    const q = qs[i];
+    el.innerHTML = `<div class="qz-top"><span class="qz-step num">Question ${i + 1} / ${qs.length}</span><div class="qz-bar"><i style="width:${i / qs.length * 100}%"></i></div></div>
+      <h3 class="qz-q">${q.q}</h3>
+      <div class="qz-a">${q.a.map((a, k) => `<button type="button" class="qz-opt" data-k="${k}">${a[0]}</button>`).join("")}</div>
+      ${i ? '<button type="button" class="qz-back">‹ Question précédente</button>' : ""}`;
+    el.querySelectorAll(".qz-opt").forEach(b => b.addEventListener("click", () => {
+      const pts = q.a[+b.dataset.k][1];
+      history.push(pts);
+      Object.entries(pts).forEach(([key, n]) => score[key] = (score[key] || 0) + n);
+      i++; draw();
+    }));
+    const back = el.querySelector(".qz-back");
+    if (back) back.addEventListener("click", () => {
+      const pts = history.pop();
+      Object.entries(pts).forEach(([key, n]) => score[key] -= n);
+      i--; draw();
+    });
+  }
+  const history = [];
+  function restart() { i = 0; score = {}; history.length = 0; draw(); }
+  draw();
+}
+
+function moodResult(el, score, restart) {
+  const order = ["boost", "focus", "calm", "recovery"];
+  const best = order.reduce((b, k) => (score[k] || 0) > (score[b] || 0) ? k : b, order[0]);
+  const L = LINES[best], per = PERSONA[best];
+  const flavours = P.filter(x => x.line === best);
+  el.innerHTML = `<div class="qz-res" style="--rc:${L.c[1]};--rt:${L.tint}">
+    <div class="qr-bottle">${bottleSVG(flavours[0], "-q")}</div>
+    <div class="qr-txt"><p class="qr-tag">Ton profil du moment</p><h3>${per.name}</h3><p>${per.text}</p>
+      <p class="qr-pick">Ta boisson : <strong>NŌVAÏ ${L.name}</strong></p>
+      <div class="m-flav">${flavours.map(x => `<a href="#${x.id}">${esc(x.flavour)}</a>`).join("")}</div>
+      <div class="h-cta"><button type="button" class="btn btn-dark" data-buy="${flavours[0].id}" data-fmt="unit">Ajouter ${esc(flavours[0].flavour)} au panier</button><button type="button" class="btn btn-line qz-again">Refaire le test</button></div>
+    </div></div>`;
+  el.querySelector(".qz-again").addEventListener("click", restart);
+}
+
+function packResult(el, score, restart) {
+  const pack = ["boost", "focus", "calm", "recovery"].map(line =>
+    P.filter(x => x.line === line).reduce((b, x) => (score[x.id] || 0) > (score[b.id] || 0) ? x : b).id);
+  el.innerHTML = `<div class="qz-res pk-res">
+    <div class="qr-txt"><p class="qr-tag">Ton pack découverte</p><h3>Composé pour toi</h3>
+      <div class="pk-row">${pack.map(id => { const p = byId(id); return `<a class="pk-item" href="#${id}">${bottleSVG(p, "-r")}<span class="pk-l" style="color:${LINES[p.line].c[2]}">${LINES[p.line].name}</span><span class="pk-f">${esc(p.flavour)}</span></a>`; }).join("")}</div>
+      <div class="h-cta"><button type="button" class="btn btn-dark" id="pkMineAdd">Ajouter mon pack · ${eur(PRICE.disc)}</button><button type="button" class="btn btn-line qz-again">Refaire le quiz</button></div>
+    </div></div>`;
+  el.querySelector("#pkMineAdd").addEventListener("click", () => { addPack(pack); });
+  el.querySelector(".qz-again").addEventListener("click", restart);
+}
+
+function packKey(ids) { return "pack-decouverte:" + ids.join(","); }
+function addPack(ids, n = 1) {
+  const key = packKey(ids);
+  const found = cart.find(i => i.id === key && i.fmt === "disc");
+  if (found) found.qty = Math.min(99, found.qty + n); else cart.push({ id: key, fmt: "disc", qty: n, pack: ids.slice() });
+  saveCart();
+  toast(`${n} × Pack découverte ajouté au panier`);
+}
+
+/* ---------- Respiration ---------- */
+(function () {
+  const btn = document.getElementById("bBtn"), circle = document.getElementById("bCircle"), label = document.getElementById("bLabel"), time = document.getElementById("bTime");
+  let timer = null, left = 300, phase = 0;
+  const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  function stop(done) {
+    clearInterval(timer); timer = null; left = 300; phase = 0;
+    circle.classList.remove("in"); btn.textContent = "Commencer"; time.textContent = fmt(left);
+    label.textContent = done ? "Bravo, 5 minutes !" : "Prêt ?";
+  }
+  function tick() {
+    if (phase % 5 === 0) { const inhale = (phase / 5) % 2 === 0; circle.classList.toggle("in", inhale); label.textContent = inhale ? "Inspire" : "Expire"; }
+    phase++; left--; time.textContent = fmt(left);
+    if (left <= 0) stop(true);
+  }
+  btn.addEventListener("click", () => {
+    if (timer) { stop(false); return; }
+    btn.textContent = "Arrêter"; tick(); timer = setInterval(tick, 1000);
+  });
+})();
+
+/* ---------- Pack découverte ---------- */
+function renderPackPage() {
+  document.getElementById("pkClassic").innerHTML = DISC.map(id => { const p = byId(id); return `<a class="pk-item" href="#${id}">${bottleSVG(p, "-k")}<span class="pk-l" style="color:${LINES[p.line].c[2]}">${LINES[p.line].name}</span><span class="pk-f">${esc(p.flavour)}</span></a>`; }).join("");
+}
+document.getElementById("pkClassicAdd").addEventListener("click", () => addPack(DISC));
+document.querySelectorAll("[data-quiz]").forEach(runQuiz);
+
+renderHome(); renderPackPage(); saveCart(); route(); setNavH();
 </script>
 </body>
 </html>
