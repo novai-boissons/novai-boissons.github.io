@@ -55,7 +55,7 @@
   nav.toc button { flex: none; font: inherit; cursor: pointer; color: var(--vert); font-weight: 600; font-size: .86rem; padding: 7px 13px; border-radius: 999px; background: #fff; border: 1px solid var(--filet); }
   nav.toc button:hover, nav.toc button:focus-visible { border-color: var(--c2); color: var(--c3); outline: none; }
 
-  section { padding: 30px 0 6px; scroll-margin-top: 60px; }
+  section { padding: 30px 0 6px; scroll-margin-top: 150px; }
   .lead { color: var(--gris); margin-top: 8px; }
 
   .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 16px; }
@@ -140,14 +140,417 @@
     .hero-grid, main { animation: in .35s ease-out both; }
     @keyframes in { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   }
+
+  /* ---------- Navigation commune ---------- */
+  nav.site { position: sticky; top: 0; z-index: 20; background: var(--vert); color: #fff; box-shadow: 0 1px 0 rgba(255,255,255,.06); }
+  .site-in { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "logo . cart" "links links links"; align-items: center; column-gap: 12px; padding-top: 8px; padding-bottom: 6px; }
+  .site-logo { grid-area: logo; }
+  .site-links { grid-area: links; margin: 6px -10px 0; }
+  .cart-link { grid-area: cart; color: #fff; text-decoration: none; font-weight: 700; font-size: .86rem; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.12); }
+  .cart-link[aria-current="page"], .cart-link:hover, .cart-link:focus-visible { background: rgba(255,255,255,.24); outline: none; }
+  @media (min-width: 760px) {
+    .site-in { grid-template-columns: auto 1fr auto; grid-template-areas: "logo links cart"; height: 60px; padding: 0 18px; }
+    .site-links { margin: 0; justify-content: center; }
+  }
+  .site-logo { font-weight: 900; font-size: 1.25rem; color: #fff; text-decoration: none; letter-spacing: -.01em; }
+  .site-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .site-links a { flex: none; color: #fff; text-decoration: none; font-weight: 600; font-size: .86rem; padding: 7px 10px; border-radius: 999px; opacity: .85; }
+  .site-links a[aria-current="page"], .site-links a:hover, .site-links a:focus-visible { background: rgba(255,255,255,.14); opacity: 1; outline: none; }
+  .cart-link { display: inline-flex; align-items: center; gap: 6px; }
+  .cart-link .count { background: #F59A32; color: var(--vert); font-weight: 800; font-size: .72rem; min-width: 20px; height: 20px; border-radius: 999px; display: inline-grid; place-items: center; padding: 0 6px; }
+  .cart-link .count[data-n="0"] { display: none; }
+  nav.toc { top: var(--navh, 92px); }
+  .brandbar .wordmark { visibility: hidden; }
+  .toast[hidden] { display: none; }
+  .view { display: none; }
+  .view.on { display: block; }
+  .pview.off { display: none !important; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; font: inherit; font-weight: 700; font-size: .95rem; text-decoration: none; min-height: 46px; padding: 0 20px; border-radius: 999px; border: 2px solid transparent; cursor: pointer; }
+  .btn:focus-visible { outline: 3px solid #F59A32; outline-offset: 2px; }
+  .btn-light { background: #fff; color: var(--vert); }
+  .btn-ghost { border-color: rgba(255,255,255,.6); color: #fff; background: transparent; }
+  .btn-dark { background: var(--vert); color: #fff; }
+  .btn-dark:hover { background: #142a21; }
+
+  /* ---------- Accueil ---------- */
+  .h-hero { background: radial-gradient(120% 90% at 85% 0%, #2E5A46 0%, var(--vert) 60%); color: #fff; padding: 34px 0 0; overflow: hidden; }
+  .h-eyebrow { font-weight: 700; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: #F7C17A; }
+  .h-eyebrow.dark { color: var(--c2); }
+  .h-hero h1, .s-hero h1 { color: #fff; font-size: 2.3rem; font-weight: 900; letter-spacing: -.025em; margin-top: 10px; max-width: 16ch; }
+  .h-lead { margin-top: 14px; font-size: 1.02rem; opacity: .9; max-width: 52ch; }
+  .h-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .lineup { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 26px; align-items: end; }
+  .lineup a { display: block; text-decoration: none; text-align: center; color: #fff; transition: transform .2s; }
+  .lineup a:hover, .lineup a:focus-visible { transform: translateY(-6px); outline: none; }
+  .lineup .bottle { width: 100%; max-width: 120px; margin: 0 auto -6px; }
+  .lineup span { display: block; font-weight: 800; font-size: .68rem; letter-spacing: .14em; padding: 10px 0 14px; }
+  .h-sec { padding-top: 40px; }
+  .moments { display: grid; gap: 12px; margin-top: 18px; }
+  .moment { display: grid; grid-template-columns: 6px 1fr; background: #fff; border: 1px solid var(--filet); border-radius: 16px; overflow: hidden; }
+  .moment > i { display: block; }
+  .m-in { padding: 16px; }
+  .m-time { font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .moment h3 { font-size: 1.15rem; margin-top: 4px; }
+  .moment p { font-size: .92rem; color: var(--gris); margin-top: 4px; }
+  .m-flav { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .m-flav a { text-decoration: none; font-size: .82rem; font-weight: 600; color: var(--vert); padding: 6px 11px; border-radius: 999px; border: 1px solid var(--filet); background: var(--fond); }
+  .m-flav a:hover, .m-flav a:focus-visible { border-color: currentColor; outline: none; }
+  .promises { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+  .promise { background: #fff; border: 1px solid var(--filet); border-radius: 16px; padding: 16px; }
+  .promise b { display: block; font-size: 1.5rem; font-weight: 900; color: var(--vert-doux); }
+  .promise h3 { font-size: .98rem; margin-top: 6px; }
+  .promise p { font-size: .86rem; color: var(--gris); margin-top: 4px; }
+  .pack { display: grid; grid-template-columns: 1fr; gap: 18px; background: #FFF4E8; border-radius: 20px; padding: 22px; }
+  .pack h2 { margin-top: 6px; }
+  .pack-txt > p { margin-top: 8px; font-size: .95rem; }
+  .price { display: grid; gap: 6px; margin-top: 14px; }
+  .p-big { font-size: 1.8rem; font-weight: 900; color: var(--vert); margin-right: 8px; }
+  .p-sm { color: var(--gris); font-size: .9rem; }
+  .p-launch { font-size: .88rem; font-weight: 600; color: #B23A22; }
+  .fid { font-size: .86rem; color: var(--gris); margin-top: 10px; }
+  .pack-box { display: flex; justify-content: center; align-items: flex-end; gap: 2px; background: #fff; border-radius: 16px; padding: 18px 10px 0; border: 2px dashed #F3D2AE; }
+  .pack-box .bottle { width: 22%; max-width: 86px; filter: none; }
+  .pack-box + .btn { margin-top: 12px; }
+  .teaser { display: grid; gap: 14px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--filet); border-radius: 20px; overflow: hidden; }
+  .teaser img { width: 100%; aspect-ratio: 2.2 / 1; object-fit: cover; display: block; }
+  .teaser > div { padding: 0 18px 18px; }
+  .teaser h2 { margin-top: 6px; }
+  .teaser p { margin-top: 8px; font-size: .95rem; color: var(--gris); }
+  .more { display: inline-block; margin-top: 10px; font-weight: 700; color: var(--vert-doux); }
+
+  /* ---------- Notre histoire ---------- */
+  .s-hero { background: var(--vert); color: #fff; padding: 34px 0 36px; }
+  .chapters { display: grid; gap: 34px; padding-top: 34px; }
+  .chap { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; row-gap: 16px; }
+  .chap-n { font-weight: 900; font-size: 1.05rem; color: var(--c2); padding-top: 3px; border-top: 3px solid var(--c2); height: fit-content; }
+  .chap-body p { margin-top: 10px; font-size: .97rem; }
+  .chap-fig { grid-column: 1 / -1; margin: 0; border-radius: 16px; overflow: hidden; }
+  .chap-fig.ill svg { display: block; width: 100%; height: auto; }
+  .chap-fig.photo { background: #fff; border: 1px solid var(--filet); }
+  .chap-fig.photo img { display: block; width: 100%; height: auto; }
+  .chap-fig figcaption { font-size: .82rem; color: var(--gris); padding: 10px 14px 12px; }
+  .chap-fig.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat { background: #fff; border: 1px solid var(--filet); border-radius: 14px; padding: 14px; }
+  .stat b { display: block; font-size: 1.6rem; font-weight: 900; color: var(--vert); }
+  .stat span { font-size: .84rem; color: var(--gris); }
+  .chap-fig.name { background: #F6F2EA; display: grid; justify-items: center; padding: 22px; gap: 4px; }
+  .name .old { font-weight: 900; font-size: 2rem; color: #A9B0AC; text-decoration: line-through; text-decoration-thickness: 3px; }
+  .name .arrow { color: var(--c2); font-weight: 800; }
+  .name .new { font-weight: 900; font-size: 2.6rem; color: var(--vert); letter-spacing: -.01em; }
+  .chap.last .h-cta { margin-top: 18px; }
+
+  /* ---------- Achat ---------- */
+  .buy { display: flex; align-items: center; gap: 12px; margin-top: 18px; position: relative; z-index: 1; flex-wrap: wrap; }
+  .buy-price { font-weight: 900; font-size: 1.5rem; color: #fff; }
+  .buy-price small { font-weight: 600; font-size: .78rem; opacity: .9; margin-left: 4px; }
+  .modal { position: fixed; inset: 0; z-index: 50; display: grid; align-items: end; }
+  .modal[hidden] { display: none; }
+  .modal-bg { position: absolute; inset: 0; background: rgba(20,32,26,.55); }
+  .sheet { position: relative; background: #fff; border-radius: 22px 22px 0 0; padding: 22px 18px calc(18px + env(safe-area-inset-bottom)); max-width: 560px; width: 100%; margin: 0 auto; max-height: 92vh; overflow-y: auto; }
+  .m-x { position: absolute; right: 12px; top: 10px; width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--fond); font-size: 1.5rem; line-height: 1; cursor: pointer; color: var(--vert); }
+  .m-head { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; padding-right: 40px; }
+  .m-bottle .bottle { width: 64px; filter: none; }
+  .m-line { font-weight: 800; font-size: .74rem; letter-spacing: .2em; color: var(--c2); }
+  .m-head h2 { font-size: 1.3rem; }
+  .m-sub { font-size: .82rem; color: var(--gris); letter-spacing: .08em; margin-top: 2px; }
+  .m-opts { border: none; margin-top: 18px; display: grid; gap: 8px; }
+  .m-opts legend { font-weight: 700; font-size: .86rem; color: var(--vert); margin-bottom: 8px; }
+  .opt { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; border: 2px solid var(--filet); border-radius: 14px; padding: 12px; cursor: pointer; }
+  .opt:has(input:checked) { border-color: var(--c2); background: var(--tint); }
+  .opt input { width: 18px; height: 18px; accent-color: var(--vert); margin: 0; }
+  .o-txt b { display: block; font-size: .95rem; color: var(--vert); }
+  .o-txt small { display: block; font-size: .8rem; color: var(--gris); margin-top: 1px; }
+  .o-p { font-weight: 800; color: var(--vert); white-space: nowrap; }
+  .o-p s { font-weight: 500; color: var(--gris); font-size: .8rem; margin-right: 4px; }
+  .m-qty { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-weight: 700; color: var(--vert); }
+  .stepper { display: inline-flex; align-items: center; border: 2px solid var(--filet); border-radius: 999px; }
+  .stepper button { width: 42px; height: 40px; border: none; background: none; font-size: 1.3rem; cursor: pointer; color: var(--vert); }
+  .stepper button:disabled { opacity: .3; cursor: default; }
+  .stepper output { min-width: 28px; text-align: center; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .m-add { width: 100%; margin-top: 18px; }
+  .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 60; background: var(--vert); color: #fff; font-weight: 600; font-size: .9rem; padding: 12px 18px; border-radius: 999px; box-shadow: 0 8px 22px rgba(0,0,0,.2); display: flex; gap: 12px; align-items: center; }
+  .toast a { color: #F7C17A; font-weight: 800; }
+
+  /* ---------- Panier ---------- */
+  .c-hero { padding-bottom: 26px; }
+  .c-wrap { padding-top: 22px; display: grid; gap: 16px; }
+  .c-item { display: grid; grid-template-columns: 56px 1fr auto; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--filet); border-radius: 16px; padding: 12px; }
+  .c-item .bottle { width: 56px; filter: none; }
+  .c-item h3 { font-size: 1rem; }
+  .c-item .c-fmt { font-size: .82rem; color: var(--gris); }
+  .c-ctrl { display: flex; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+  .c-ctrl .stepper button { width: 34px; height: 32px; font-size: 1.1rem; }
+  .c-del { border: none; background: none; color: #B23A22; font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 4px; }
+  .c-price { font-weight: 800; color: var(--vert); white-space: nowrap; align-self: start; }
+  .c-sum { background: #fff; border: 1px solid var(--filet); border-radius: 16px; padding: 16px; }
+  .c-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: .95rem; }
+  .c-tot { border-top: 1px solid var(--filet); margin-top: 6px; padding-top: 12px; font-weight: 900; font-size: 1.15rem; color: var(--vert); }
+  .c-go { width: 100%; margin-top: 14px; }
+  .c-note { font-size: .86rem; color: var(--gris); margin-top: 10px; }
+  .c-empty { text-align: center; padding: 20px 0; display: grid; gap: 14px; justify-items: center; color: var(--gris); }
+  .c-empty[hidden] { display: none; }
+
+  @media (min-width: 640px) {
+    .h-hero h1, .s-hero h1 { font-size: 3rem; }
+    .moments { grid-template-columns: 1fr 1fr; }
+    .promises { grid-template-columns: repeat(4, 1fr); }
+    .pack { grid-template-columns: 1.2fr 1fr; align-items: center; }
+    .teaser { grid-template-columns: 1fr 1fr; align-items: center; }
+    .teaser > div { padding: 18px 18px 18px 0; }
+    .teaser img { height: 100%; aspect-ratio: auto; }
+    .chap { grid-template-columns: 54px 1fr 1fr; column-gap: 22px; }
+    .chap-fig { grid-column: 3; align-self: start; }
+    .modal { align-items: center; }
+    .sheet { border-radius: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .lineup a { transition: none; } }
+
+  /* ---------- Où nous trouver ---------- */
+  .w-sec { padding-top: 30px; }
+  .w-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .w-badge { font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: #EEF0EE; color: var(--gris); }
+  .w-badge.on { background: #E3F1E6; color: var(--vert-doux); }
+  .w-grid { display: grid; gap: 12px; margin-top: 16px; }
+  .w-card { display: block; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--filet); border-radius: 16px; padding: 18px; }
+  a.w-card:hover, a.w-card:focus-visible { border-color: var(--vert-doux); outline: none; }
+  .w-card svg { width: 34px; height: 34px; fill: none; stroke: var(--vert); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .w-card h3 { margin-top: 10px; font-size: 1.05rem; }
+  .w-card p { margin-top: 4px; font-size: .92rem; color: var(--gris); }
+  .w-list { list-style: none; margin-top: 16px; background: #fff; border: 1px solid var(--filet); border-radius: 16px; overflow: hidden; }
+  .w-list li { padding: 14px 16px; display: grid; gap: 2px; }
+  .w-list li + li { border-top: 1px solid var(--filet); }
+  .w-list b { color: var(--vert); font-size: .97rem; }
+  .w-list span { font-size: .86rem; color: var(--gris); }
+  .w-note { background: #F6F2EA; border-radius: 16px; padding: 18px; border-left: 4px solid var(--vert); }
+  .w-note p { margin-top: 6px; font-size: .94rem; }
+  @media (min-width: 640px) { .w-grid { grid-template-columns: repeat(3, 1fr); } }
 </style>
 </head>
 <body>
+<nav class="site" aria-label="Navigation principale">
+  <div class="wrap site-in">
+    <a class="site-logo" href="#">NŌVAÏ</a>
+    <div class="site-links">
+      <a href="#" data-nav="home">Accueil</a>
+      <a href="#gamme-accueil" data-nav="gamme">Gamme</a>
+      <a href="#histoire" data-nav="story">Histoire</a>
+      <a href="#ou-nous-trouver" data-nav="where">Où nous trouver</a>
+    </div>
+    <a href="#panier" data-nav="cart" class="cart-link" aria-label="Panier">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1.2 10.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="cl-txt">Panier</span><span class="count" data-n="0">0</span>
+    </a>
+  </div>
+</nav>
 
-<header class="hero">
+<!-- ========== ACCUEIL ========== -->
+<div id="home" class="view">
+  <header class="h-hero">
+    <div class="wrap">
+      <p class="h-eyebrow">Boissons fonctionnelles · 33 cl · verre</p>
+      <h1>Une boisson pour chaque moment de ta journée.</h1>
+      <p class="h-lead">Énergie, concentration, détente, récupération : quatre boissons d’origine naturelle, sans sucres et sans édulcorant, pensées pour les journées qui ne s’arrêtent jamais.</p>
+      <div class="h-cta">
+        <a class="btn btn-light" href="#gamme-accueil" data-scroll="gamme-accueil">Choisir ma boisson</a>
+        <a class="btn btn-ghost" href="#histoire">Notre histoire</a>
+      </div>
+      <div class="lineup" id="lineup"></div>
+    </div>
+  </header>
+
+  <section class="wrap h-sec" id="gamme-accueil">
+    <h2>Choisis ton moment</h2>
+    <p class="lead">Plutôt qu’une seule boisson énergisante, NŌVAÏ en propose quatre. Chacune répond à un besoin précis de ta journée.</p>
+    <div class="moments" id="moments"></div>
+  </section>
+
+  <section class="wrap h-sec">
+    <h2>Ce qu’on t’a promis</h2>
+    <div class="promises">
+      <div class="promise"><b>0 g</b><h3>Sans sucres, sans édulcorant</h3><p>Moins de 0,5 g de sucres pour 100 ml, venus uniquement des fruits. Et aucun sucre de remplacement.</p></div>
+      <div class="promise"><b>QR</b><h3>Une composition qu’on comprend</h3><p>Peu d’ingrédients, et le rôle de chacun expliqué. Scanne le QR code de ta bouteille pour tout savoir.</p></div>
+      <div class="promise"><b>100 %</b><h3>Une caféine d’origine naturelle</h3><p>Quand il y a de la caféine, elle vient du guarana, du thé matcha ou du thé vert. Jamais de synthèse.</p></div>
+      <div class="promise"><b>33 cl</b><h3>Du verre, recyclé et recyclable</h3><p>Une bouteille qui préserve le goût, se referme, et se recycle sans perdre en qualité.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap h-sec">
+    <div class="pack">
+      <div class="pack-txt">
+        <p class="h-eyebrow dark">Pack découverte</p>
+        <h2>Les quatre, pour trouver la tienne</h2>
+        <p>Une bouteille de chaque ligne : BOOST, FOCUS, CALM et RECOVERY. Le meilleur moyen de découvrir celle qui te correspond.</p>
+        <div class="price">
+          <div><span class="p-big num">8,99 €</span><span class="p-sm">le pack découverte de 4 bouteilles</span></div>
+          <div class="p-sm">À l’unité : 2,29 € · Pack de 6 du même parfum : 12,99 €</div>
+          <div class="p-launch">Offre de lancement sur le campus : <span class="num">1,99 €</span> la bouteille</div>
+        </div>
+        <div class="h-cta"><button type="button" class="btn btn-dark" data-buy="boost-orange-sanguine" data-fmt="disc">Ajouter le pack découverte</button></div>
+        <p class="fid">Programme de fidélité : chaque achat te rapporte des points, à échanger contre des réductions.</p>
+      </div>
+      <div class="pack-box" id="packbox" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="wrap h-sec">
+    <a class="teaser" href="#histoire">
+      <img src="images/prototype-etiquette.jpg" alt="Le premier prototype d’étiquette NŌVAÏ BOOST, imprimé sur papier" loading="lazy">
+      <div>
+        <p class="h-eyebrow dark">Notre histoire</p>
+        <h2>Tout est parti d’une soirée de révisions</h2>
+        <p>Cinq étudiants, cinq entretiens, 87 personnes interrogées et un premier prototype imprimé sur une feuille A4. Voici comment NŌVAÏ est née.</p>
+        <span class="more">Lire notre histoire ›</span>
+      </div>
+    </a>
+  </section>
+</div>
+
+<!-- ========== NOTRE HISTOIRE ========== -->
+<div id="story" class="view">
+  <header class="s-hero">
+    <div class="wrap">
+      <p class="h-eyebrow">Notre histoire</p>
+      <h1>On voulait juste tenir jusqu’au bout de la journée.</h1>
+      <p class="h-lead">NŌVAÏ est née d’une question posée entre deux révisions : pourquoi faudrait-il choisir entre un énième café et une canette trop sucrée&nbsp;?</p>
+    </div>
+  </header>
+
+  <div class="wrap chapters">
+
+    <article class="chap">
+      <div class="chap-n">01</div>
+      <div class="chap-body">
+        <h2>Le constat</h2>
+        <p>Nous sommes étudiants. Les cours, les révisions, les trajets, le travail à côté : nos journées sont longues, et le sommeil passe souvent après. En regardant les chiffres sur le stress et le manque de sommeil chez les jeunes adultes, on s’est rendu compte qu’on était loin d’être les seuls.</p>
+        <p>Pour tenir, on avait deux options : le café, ou les boissons énergisantes. Trop de sucre, des compositions qu’on ne comprenait pas, un goût qu’on se forçait à aimer. Rien qui nous ressemblait vraiment.</p>
+      </div>
+      <figure class="chap-fig ill">
+        <svg viewBox="0 0 320 200" role="img" aria-label="Un bureau de révisions avec une tasse de café, une canette et des cours">
+          <rect x="0" y="0" width="320" height="200" fill="#F6F2EA"/>
+          <rect x="20" y="150" width="280" height="10" rx="3" fill="#C9B79C"/>
+          <rect x="60" y="92" width="110" height="58" rx="4" fill="#fff" stroke="#1E3B2F" stroke-width="2.5" transform="rotate(-4 115 121)"/>
+          <g stroke="#9AA39E" stroke-width="2" stroke-linecap="round" transform="rotate(-4 115 121)"><line x1="72" y1="106" x2="150" y2="106"/><line x1="72" y1="116" x2="158" y2="116"/><line x1="72" y1="126" x2="140" y2="126"/><line x1="72" y1="136" x2="152" y2="136"/></g>
+          <path d="M196 112h34v34a6 6 0 0 1-6 6h-22a6 6 0 0 1-6-6z" fill="#fff" stroke="#1E3B2F" stroke-width="2.5"/>
+          <path d="M230 120c10 0 10 18 0 18" fill="none" stroke="#1E3B2F" stroke-width="2.5"/>
+          <path d="M206 100c-4-6 4-8 0-14M218 100c-4-6 4-8 0-14" fill="none" stroke="#9AA39E" stroke-width="2" stroke-linecap="round"/>
+          <rect x="248" y="98" width="26" height="52" rx="5" fill="#D9432B" stroke="#1E3B2F" stroke-width="2.5"/>
+          <rect x="248" y="110" width="26" height="14" fill="#F59A32"/>
+          <circle cx="278" cy="40" r="16" fill="none" stroke="#1E3B2F" stroke-width="2.5"/>
+          <path d="M278 30v10l7 5" stroke="#D9432B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="22" y="40" font-family="Inter, sans-serif" font-weight="800" font-size="13" fill="#1E3B2F">23 h 47</text>
+        </svg>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-n">02</div>
+      <div class="chap-body">
+        <h2>On a d’abord écouté</h2>
+        <p>Avant d’imaginer la moindre recette, nous avons rencontré cinq personnes de notre âge : deux étudiantes en pleine période de révisions, un étudiant méfiant envers ce qu’il boit, une jeune active qui cherche un regain d’énergie après le déjeuner, et une jeune active sportive.</p>
+        <p>Chacune avait un besoin différent : rester concentrée, retrouver de l’énergie sans trop de sucre, comprendre ce qu’il y a dans la bouteille, s’hydrater pendant l’effort. Puis nous avons interrogé 87 personnes : <strong>70 %</strong> se disaient intéressées par une gamme comme la nôtre, et le format 33 cl arrivait en tête.</p>
+      </div>
+      <figure class="chap-fig stats">
+        <div class="stat"><b class="num">5</b><span>entretiens en face à face</span></div>
+        <div class="stat"><b class="num">87</b><span>personnes interrogées</span></div>
+        <div class="stat"><b class="num">70 %</b><span>intéressées par la gamme</span></div>
+        <div class="stat"><b class="num">46 %</b><span>préfèrent le format 33 cl</span></div>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-n">03</div>
+      <div class="chap-body">
+        <h2>Une idée simple : quatre besoins, quatre boissons</h2>
+        <p>Ces rencontres nous ont appris une chose : on n’a pas besoin de la même boisson à 8 h, avant un partiel, après le sport ou le soir. Alors plutôt que de créer une énième boisson énergisante, nous avons imaginé une gamme organisée autour des moments de la journée.</p>
+        <p><strong>BOOST</strong> pour les coups de fatigue, <strong>FOCUS</strong> pour le travail et les révisions, <strong>CALM</strong> pour la détente, <strong>RECOVERY</strong> pour l’hydratation et la récupération. Chaque ligne a sa couleur, pour trouver la bonne bouteille d’un coup d’œil.</p>
+      </div>
+      <figure class="chap-fig ill">
+        <svg viewBox="0 0 320 200" role="img" aria-label="Croquis des quatre bouteilles de la gamme">
+          <rect width="320" height="200" fill="#F6F2EA"/>
+          <g fill="none" stroke-width="2.5" stroke-linejoin="round">
+            <path d="M58 40h16v20c0 8 14 14 14 28v76a6 6 0 0 1-6 6H50a6 6 0 0 1-6-6V88c0-14 14-20 14-28z" stroke="#EE7A22"/>
+            <path d="M128 40h16v20c0 8 14 14 14 28v76a6 6 0 0 1-6 6h-32a6 6 0 0 1-6-6V88c0-14 14-20 14-28z" stroke="#3F7FD0"/>
+            <path d="M198 40h16v20c0 8 14 14 14 28v76a6 6 0 0 1-6 6h-32a6 6 0 0 1-6-6V88c0-14 14-20 14-28z" stroke="#8E62C9"/>
+            <path d="M268 40h16v20c0 8 14 14 14 28v76a6 6 0 0 1-6 6h-32a6 6 0 0 1-6-6V88c0-14 14-20 14-28z" stroke="#3E9E5C"/>
+          </g>
+          <g font-family="Inter, sans-serif" font-weight="800" font-size="9" text-anchor="middle" letter-spacing="1">
+            <text x="66" y="128" fill="#EE7A22">BOOST</text><text x="136" y="128" fill="#3F7FD0">FOCUS</text><text x="206" y="128" fill="#8E62C9">CALM</text><text x="276" y="128" fill="#3E9E5C">RECOV.</text>
+          </g>
+          <g stroke="#9AA39E" stroke-width="1.5" stroke-dasharray="3 4"><line x1="44" y1="104" x2="88" y2="104"/><line x1="114" y1="104" x2="158" y2="104"/><line x1="184" y1="104" x2="228" y2="104"/><line x1="254" y1="104" x2="298" y2="104"/></g>
+          <text x="20" y="194" font-family="Inter, sans-serif" font-size="10" fill="#6B756F">premier croquis de la gamme</text>
+        </svg>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-n">04</div>
+      <div class="chap-body">
+        <h2>NOVA, puis NŌVAÏ</h2>
+        <p>Au départ, la marque s’appelait NOVA : deux syllabes, une idée de nouveauté et de clarté d’esprit. Problème : le nom était déjà déposé.</p>
+        <p>Plutôt que de tout recommencer, nous l’avons transformé. Un trait sur le O, un tréma sur le I : <strong>NŌVAÏ</strong> garde l’esprit du nom d’origine tout en étant unique. Une recherche à l’INPI nous a confirmé qu’il était libre.</p>
+      </div>
+      <figure class="chap-fig name">
+        <span class="old">NOVA</span>
+        <span class="arrow">↓</span>
+        <span class="new">NŌVAÏ</span>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-n">05</div>
+      <div class="chap-body">
+        <h2>Le choix du verre</h2>
+        <p>Les boissons énergisantes sont presque toutes vendues en canette. Nous avons choisi le verre : il préserve le goût, il donne envie, et il se recycle sans fin. Notre bouteille est fabriquée en verre recyclé, et son bouchon se revisse pour la finir plus tard.</p>
+        <p>Le verre est plus lourd et plus fragile, on le sait. C’est pour ça que nos packs sont pensés pour protéger chaque bouteille pendant le transport.</p>
+      </div>
+      <figure class="chap-fig ill">
+        <svg viewBox="0 0 320 200" role="img" aria-label="Une bouteille en verre entourée de flèches de recyclage">
+          <rect width="320" height="200" fill="#F6F2EA"/>
+          <path d="M150 34h20v22c0 9 18 16 18 32v80a7 7 0 0 1-7 7h-42a7 7 0 0 1-7-7V88c0-16 18-23 18-32z" fill="#E4EFE6" stroke="#1E3B2F" stroke-width="2.5"/>
+          <rect x="148" y="24" width="24" height="12" rx="2" fill="#C9CED1" stroke="#1E3B2F" stroke-width="2"/>
+          <g fill="none" stroke="#3E9E5C" stroke-width="3" stroke-linecap="round">
+            <path d="M96 120a68 68 0 0 1 20-62"/><path d="M224 80a68 68 0 0 1-20 62"/>
+          </g>
+          <path d="M110 52l8 6-10 3z" fill="#3E9E5C"/><path d="M210 148l-8-6 10-3z" fill="#3E9E5C"/>
+          <text x="160" y="196" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#6B756F">verre recyclé · recyclable à l’infini</text>
+        </svg>
+      </figure>
+    </article>
+
+    <article class="chap">
+      <div class="chap-n">06</div>
+      <div class="chap-body">
+        <h2>Le premier prototype</h2>
+        <p>Un croquis, puis une maquette : nous avons dessiné l’étiquette, l’avons imprimée sur une simple feuille A4 et collée sur une bouteille. Nous l’avons ensuite montrée à des personnes de notre cible pour recueillir leurs avis.</p>
+        <p>Leurs retours ont confirmé nos choix : une bouteille de 33 cl facile à emporter, un design épuré mais coloré, et une couleur différente pour chaque ligne.</p>
+      </div>
+      <figure class="chap-fig photo">
+        <img src="images/prototype-etiquette.jpg" alt="Le premier prototype d’étiquette NŌVAÏ BOOST Orange sanguine, imprimé sur papier avec ses traits de coupe" loading="lazy">
+        <figcaption>Notre toute première étiquette, BOOST Orange sanguine, juste avant d’être découpée.</figcaption>
+      </figure>
+    </article>
+
+    <article class="chap last">
+      <div class="chap-n">07</div>
+      <div class="chap-body">
+        <h2>Et maintenant&nbsp;?</h2>
+        <p>NŌVAÏ n’est pas juste une boisson. C’est une gamme qui s’adapte à ta journée, avec une composition que tu peux lire et comprendre. Pour la découvrir, nous lançons un pack réunissant les quatre lignes, une offre de lancement sur le campus et un programme de fidélité.</p>
+        <p>Et si tu as une question, une remarque ou une idée de parfum, écris-nous sur <strong>@novai.boissons</strong>. On lit tout : c’est comme ça que NŌVAÏ est née.</p>
+        <div class="h-cta">
+          <a class="btn btn-dark" href="#gamme-accueil" data-home-scroll="gamme-accueil">Découvrir la gamme</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+
+<header class="hero pview" id="p-hero">
   <div class="wrap">
     <div class="brandbar">
-      <a class="wordmark" href="#boost-orange-sanguine">NŌVAÏ</a>
+      <a class="wordmark" href="#">NŌVAÏ</a>
       <div class="tag" id="tag">BOOST</div>
     </div>
     <div class="hero-grid">
@@ -160,10 +563,11 @@
       <div id="bottle"></div>
     </div>
     <div class="chips" id="chips"></div>
+    <div class="buy"><span class="buy-price">2,29 €<small>la bouteille</small></span><button type="button" class="btn btn-light" id="buyBtn">Ajouter au panier</button></div>
   </div>
 </header>
 
-<nav class="toc" aria-label="Sommaire">
+<nav class="toc pview" aria-label="Sommaire">
   <div class="wrap">
     <button type="button" data-go="composition">Composition</button>
     <button type="button" data-go="origines">Origines</button>
@@ -174,7 +578,111 @@
   </div>
 </nav>
 
-<main class="wrap" id="main"></main>
+<main class="wrap pview" id="main"></main>
+
+
+<!-- ========== OÙ NOUS TROUVER ========== -->
+<div id="where" class="view">
+  <header class="s-hero">
+    <div class="wrap">
+      <p class="h-eyebrow">Où nous trouver</p>
+      <h1>NŌVAÏ vient là où tu es déjà.</h1>
+      <p class="h-lead">Sur ton campus, près de chez toi ou en ligne : on a choisi d’être présents dans les lieux de ton quotidien, plutôt que de te faire venir jusqu’à nous.</p>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="w-sec">
+      <div class="w-head"><h2>Dès le lancement</h2><span class="w-badge on">Disponible</span></div>
+      <div class="w-grid">
+        <a class="w-card" href="#gamme-accueil">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="16" rx="2"/><path d="M2 26h28"/><path d="M12 14h8"/></svg>
+          <h3>Notre site officiel</h3><p>Commande à l’unité, en pack de 6 ou en pack découverte, directement ici.</p><span class="more">Voir la gamme ›</span>
+        </a>
+        <div class="w-card">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="3" width="18" height="26" rx="2"/><path d="M11 8h10v9H11z"/><path d="M11 22h4M20 22h1"/></svg>
+          <h3>Ton campus</h3><p>Dans les cafétérias, les corners et les distributeurs automatiques universitaires, entre deux cours.</p>
+        </div>
+        <div class="w-card">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12l2-6h20l2 6"/><path d="M6 12v14h20V12"/><path d="M4 12h24"/><path d="M13 26v-7h6v7"/></svg>
+          <h3>Près de chez toi</h3><p>Dans les supérettes et les commerces de proximité, au rayon frais.</p>
+        </div>
+      </div>
+    </section>
+    <section class="w-sec">
+      <div class="w-head"><h2>Bientôt</h2><span class="w-badge">À venir</span></div>
+      <ul class="w-list">
+        <li><b>Les marketplaces</b><span>notamment Amazon</span></li>
+        <li><b>Les e-commerçants spécialisés</b><span>sites dédiés aux boissons et au bien-être</span></li>
+        <li><b>Les grandes surfaces</b><span>au rayon boissons</span></li>
+        <li><b>Les magasins bio et de produits naturels</b><span>pour qui veut une composition simple</span></li>
+        <li><b>Les salles de sport</b><span>avec NŌVAÏ RECOVERY en tête</span></li>
+      </ul>
+    </section>
+    <section class="w-sec">
+      <div class="w-note">
+        <h3>Pas de boutique NŌVAÏ</h3>
+        <p>Nous n’ouvrons pas de magasins en propre. Notre idée : être là où tu étudies, travailles et fais tes courses, sans détour.</p>
+      </div>
+      <div class="h-cta"><a class="btn btn-dark" href="#gamme-accueil">Commander en ligne</a></div>
+    </section>
+  </div>
+</div>
+
+<!-- ========== PANIER ========== -->
+<div id="cart" class="view">
+  <header class="s-hero c-hero">
+    <div class="wrap">
+      <p class="h-eyebrow">Ton panier</p>
+      <h1 id="cartTitle">Ton panier est vide</h1>
+    </div>
+  </header>
+  <div class="wrap c-wrap">
+    <div id="cartList"></div>
+    <div class="c-sum" id="cartSum" hidden>
+      <div class="c-row"><span>Sous-total</span><span class="num" id="cartSub"></span></div>
+      <div class="c-row c-tot"><span>Total</span><span class="num" id="cartTot"></span></div>
+      <button type="button" class="btn btn-dark c-go" id="checkout">Valider ma commande</button>
+      <p class="c-note" id="checkoutMsg" role="status"></p>
+    </div>
+    <div class="c-empty" id="cartEmpty">
+      <p>Choisis une boisson dans la gamme pour commencer.</p>
+      <a class="btn btn-dark" href="#gamme-accueil">Voir la gamme</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== FENÊTRE D'ACHAT ========== -->
+<div class="modal" id="buyModal" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button type="button" class="m-x" data-close aria-label="Fermer">×</button>
+    <div class="m-head">
+      <div class="m-bottle" id="mBottle"></div>
+      <div>
+        <p class="m-line" id="mLine">BOOST</p>
+        <h2 id="mTitle">Orange sanguine</h2>
+        <p class="m-sub" id="mSub"></p>
+      </div>
+    </div>
+    <fieldset class="m-opts">
+      <legend>Format</legend>
+      <label class="opt"><input type="radio" name="fmt" value="unit" checked><span class="o-txt"><b>À l’unité</b><small>1 bouteille de 33 cl</small></span><span class="o-p num" id="pUnit"></span></label>
+      <label class="opt"><input type="radio" name="fmt" value="six"><span class="o-txt"><b>Pack de 6</b><small id="sixLabel">6 bouteilles du même parfum</small></span><span class="o-p num" id="pSix"></span></label>
+      <label class="opt"><input type="radio" name="fmt" value="disc"><span class="o-txt"><b>Pack découverte</b><small>1 bouteille de chaque ligne : BOOST, FOCUS, CALM, RECOVERY</small></span><span class="o-p num" id="pDisc"></span></label>
+    </fieldset>
+    <div class="m-qty">
+      <span id="qtyLabel">Quantité</span>
+      <div class="stepper">
+        <button type="button" id="qMinus" aria-label="Retirer un">−</button>
+        <output id="qVal" aria-live="polite">1</output>
+        <button type="button" id="qPlus" aria-label="Ajouter un">+</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-dark m-add" id="mAdd">Ajouter au panier · <span class="num" id="mTotal"></span></button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
 
 <footer>
   <div class="wrap">
@@ -371,9 +879,9 @@ function fruitSVG(f, cx, cy, r) {
   return `<path d="M${cx} ${cy - r * .55} c${-r * .9} ${-r * .45} ${-r * 1.15} ${r * .6} ${-r * .55} ${r * 1.25} c${r * .2} ${r * .2} ${r * .4} ${r * .1} ${r * .55} ${r * .05} c${r * .15} ${r * .05} ${r * .35} ${r * .15} ${r * .55} ${-r * .05} c${r * .6} ${-r * .65} ${r * .35} ${-r * 1.7} ${-r * .55} ${-r * 1.25} z" fill="${a}"/><path d="M${cx} ${cy - r * .55} q${r * .05} ${-r * .3} ${r * .2} ${-r * .45}" stroke="#6B4A2A" stroke-width="${r * .1}" fill="none" stroke-linecap="round"/><path d="M${cx + r * .15} ${cy - r * .75} q${r * .45} ${-r * .3} ${r * .7} ${-r * .05} q${-r * .35} ${r * .3} ${-r * .7} ${r * .05} z" fill="${b}"/>`;
 }
 
-function bottleSVG(p) {
+function bottleSVG(p, sfx = "") {
   const L = LINES[p.line];
-  const gid = "g" + p.id;
+  const gid = "g" + p.id + sfx;
   return `<svg class="bottle" viewBox="0 0 120 300" role="img" aria-label="Bouteille NŌVAÏ ${L.name} ${esc(p.flavour)}">
     <defs>
       <linearGradient id="${gid}" x1="0" y1="0" x2=".4" y2="1"><stop offset="0" stop-color="${L.c[0]}"/><stop offset=".45" stop-color="${L.c[1]}"/><stop offset="1" stop-color="${L.c[2]}"/></linearGradient>
@@ -525,8 +1033,169 @@ document.querySelectorAll("nav.toc button").forEach(b => b.addEventListener("cli
   const el = document.getElementById(b.dataset.go);
   if (el) el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 }));
-window.addEventListener("hashchange", () => { render(); window.scrollTo(0, 0); });
-render();
+
+/* ---------- Boutique ---------- */
+/* Prix de départ, d'après le TD5 (partie Prix) : 2,29 € la bouteille. Prix des packs à valider avec le groupe. */
+const PRICE = { unit: 2.29, six: 12.99, disc: 8.99 };
+const DISC = ["boost-orange-sanguine", "focus-pomme-verte", "calm-myrtille", "recovery-ananas"];
+const FMT_LABEL = { unit: "À l’unité", six: "Pack de 6", disc: "Pack découverte" };
+const MOMENTS = {
+  boost:    { time: "Le coup de barre", text: "Après le déjeuner, avant un trajet ou une longue soirée : un coup d’énergie, sans sucres." },
+  focus:    { time: "Les révisions", text: "Pendant les cours, le travail ou les partiels : une caféine douce pour rester concentré." },
+  calm:     { time: "La pause", text: "En fin de journée ou après les cours : un moment de détente, sans caféine." },
+  recovery: { time: "Le sport", text: "Pendant et après l’effort : de quoi t’hydrater et récupérer." }
+};
+const eur = n => n.toLocaleString("fr-FR", { style: "currency", currency: "EUR" });
+const byId = id => P.find(x => x.id === id);
+
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("novai-cart") || "[]").filter(i => i && PRICE[i.fmt] && i.qty > 0); } catch (e) { cart = []; }
+function saveCart() {
+  try { localStorage.setItem("novai-cart", JSON.stringify(cart)); } catch (e) {}
+  const n = cart.reduce((s, i) => s + i.qty, 0);
+  document.querySelectorAll(".count").forEach(c => { c.textContent = n; c.dataset.n = n; });
+}
+
+/* Fenêtre d'achat */
+const modal = document.getElementById("buyModal");
+let buyProduct = P[0], qty = 1, lastFocus = null;
+function fmtNow() { return modal.querySelector('input[name="fmt"]:checked').value; }
+function refreshModal() {
+  const f = fmtNow();
+  document.getElementById("qVal").textContent = qty;
+  document.getElementById("qMinus").disabled = qty <= 1;
+  document.getElementById("qtyLabel").textContent = f === "unit" ? "Nombre de bouteilles" : "Nombre de packs";
+  document.getElementById("mTotal").textContent = eur(PRICE[f] * qty);
+}
+function openBuy(id, fmt) {
+  buyProduct = byId(id) || P[0];
+  const L = LINES[buyProduct.line];
+  document.getElementById("mBottle").innerHTML = bottleSVG(buyProduct, "-m");
+  document.getElementById("mLine").textContent = L.name;
+  document.getElementById("mTitle").textContent = buyProduct.flavour;
+  document.getElementById("mSub").textContent = buyProduct.sub;
+  document.getElementById("sixLabel").textContent = `6 bouteilles ${L.name} ${buyProduct.flavour}`;
+  document.getElementById("pUnit").textContent = eur(PRICE.unit);
+  document.getElementById("pSix").innerHTML = `<s>${eur(PRICE.unit * 6)}</s>${eur(PRICE.six)}`;
+  document.getElementById("pDisc").innerHTML = `<s>${eur(PRICE.unit * 4)}</s>${eur(PRICE.disc)}`;
+  modal.querySelector(`input[value="${fmt || "unit"}"]`).checked = true;
+  qty = 1; refreshModal();
+  lastFocus = document.activeElement;
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+  modal.querySelector('input[name="fmt"]:checked').focus();
+}
+function closeBuy() {
+  modal.hidden = true; document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
+}
+modal.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", closeBuy));
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) closeBuy(); });
+modal.querySelectorAll('input[name="fmt"]').forEach(r => r.addEventListener("change", refreshModal));
+document.getElementById("qMinus").addEventListener("click", () => { if (qty > 1) { qty--; refreshModal(); } });
+document.getElementById("qPlus").addEventListener("click", () => { if (qty < 99) { qty++; refreshModal(); } });
+document.getElementById("mAdd").addEventListener("click", () => {
+  const f = fmtNow();
+  const id = f === "disc" ? "pack-decouverte" : buyProduct.id;
+  const found = cart.find(i => i.id === id && i.fmt === f);
+  if (found) found.qty = Math.min(99, found.qty + qty); else cart.push({ id, fmt: f, qty });
+  saveCart(); closeBuy();
+  const what = f === "disc" ? "Pack découverte" : `${LINES[buyProduct.line].name} ${buyProduct.flavour}${f === "six" ? " (pack de 6)" : ""}`;
+  toast(`${qty} × ${what} ajouté au panier`);
+});
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.innerHTML = `<span>${esc(msg)}</span><a href="#panier">Voir</a>`;
+  t.hidden = false; clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.hidden = true; }, 3500);
+}
+
+/* Panier */
+function renderCart() {
+  const list = document.getElementById("cartList");
+  const n = cart.reduce((s, i) => s + i.qty, 0);
+  document.getElementById("cartTitle").textContent = n ? `Ton panier (${n} article${n > 1 ? "s" : ""})` : "Ton panier est vide";
+  document.getElementById("cartEmpty").hidden = n > 0;
+  document.getElementById("cartSum").hidden = n === 0;
+  document.getElementById("checkoutMsg").textContent = "";
+  list.innerHTML = cart.map((i, k) => {
+    const p = i.fmt === "disc" ? byId(DISC[0]) : byId(i.id);
+    const name = i.fmt === "disc" ? "Pack découverte" : `${LINES[p.line].name} ${p.flavour}`;
+    const fmt = i.fmt === "disc" ? "BOOST Orange sanguine, FOCUS Pomme verte, CALM Myrtille, RECOVERY Ananas" : (i.fmt === "six" ? "Pack de 6 bouteilles de 33 cl" : "Bouteille de 33 cl");
+    return `<div class="c-item"><div>${bottleSVG(p, "-c" + k)}</div>
+      <div><h3>${esc(name)}</h3><div class="c-fmt">${esc(fmt)} · ${eur(PRICE[i.fmt])}</div>
+        <div class="c-ctrl"><div class="stepper"><button type="button" data-k="${k}" data-d="-1" aria-label="Retirer un"${i.qty <= 1 ? " disabled" : ""}>−</button><output>${i.qty}</output><button type="button" data-k="${k}" data-d="1" aria-label="Ajouter un">+</button></div>
+        <button type="button" class="c-del" data-del="${k}">Supprimer</button></div></div>
+      <div class="c-price num">${eur(PRICE[i.fmt] * i.qty)}</div></div>`;
+  }).join("");
+  const total = cart.reduce((s, i) => s + PRICE[i.fmt] * i.qty, 0);
+  document.getElementById("cartSub").textContent = eur(total);
+  document.getElementById("cartTot").textContent = eur(total);
+}
+document.getElementById("cartList").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.del !== undefined) cart.splice(+b.dataset.del, 1);
+  else if (b.dataset.k !== undefined) { const it = cart[+b.dataset.k]; it.qty = Math.max(1, Math.min(99, it.qty + +b.dataset.d)); }
+  saveCart(); renderCart();
+});
+document.getElementById("checkout").addEventListener("click", () => {
+  document.getElementById("checkoutMsg").textContent = "Merci ! La boutique en ligne NŌVAÏ n’est pas encore ouverte : ta commande n’a pas été envoyée et rien ne t’a été facturé. Ton panier reste enregistré sur cet appareil.";
+});
+
+/* Accueil */
+function renderHome() {
+  document.getElementById("lineup").innerHTML = DISC.map(id => { const p = byId(id); return `<a href="#${p.id}">${bottleSVG(p, "-l")}<span>${LINES[p.line].name}</span></a>`; }).join("");
+  document.getElementById("moments").innerHTML = Object.entries(LINES).map(([k, l]) => `<div class="moment"><i style="background:${l.c[1]}"></i><div class="m-in">
+    <div class="m-time" style="color:${l.c[2]}">${MOMENTS[k].time}</div><h3>NŌVAÏ ${l.name}</h3><p>${MOMENTS[k].text}</p>
+    <div class="m-flav">${P.filter(x => x.line === k).map(x => `<a href="#${x.id}">${esc(x.flavour)}</a>`).join("")}</div></div></div>`).join("");
+  document.getElementById("packbox").innerHTML = DISC.map(id => bottleSVG(byId(id), "-p")).join("");
+}
+
+/* Navigation entre les vues */
+function setLineColors(lineKey) {
+  const L = LINES[lineKey], r = document.documentElement.style;
+  r.setProperty("--c1", L.c[0]); r.setProperty("--c2", L.c[1]); r.setProperty("--c3", L.c[2]); r.setProperty("--tint", L.tint);
+}
+function route() {
+  const h = (location.hash || "").slice(1);
+  let v = "home", target = null;
+  if (h === "histoire") v = "story";
+  else if (h === "panier") v = "cart";
+  else if (h === "ou-nous-trouver") v = "where";
+  else if (byId(h)) v = "product";
+  else if (h === "gamme-accueil") target = "gamme-accueil";
+  document.querySelectorAll(".view").forEach(el => el.classList.toggle("on", el.id === { home: "home", story: "story", cart: "cart", where: "where" }[v]));
+  document.querySelectorAll(".pview").forEach(el => el.classList.toggle("off", v !== "product"));
+  document.querySelectorAll(".site-links a, .cart-link").forEach(a => {
+    const on = (a.dataset.nav === "home" && v === "home" && !target) || (a.dataset.nav === "gamme" && target) || (a.dataset.nav === "story" && v === "story") || (a.dataset.nav === "cart" && v === "cart") || (a.dataset.nav === "where" && v === "where");
+    if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  if (v === "product") { render(); }
+  else {
+    setLineColors("boost");
+    document.title = { home: "NŌVAÏ · Une boisson pour chaque moment", story: "NŌVAÏ · Notre histoire", cart: "NŌVAÏ · Panier", where: "NŌVAÏ · Où nous trouver" }[v];
+    if (v === "cart") renderCart();
+  }
+  if (target) { const el = document.getElementById(target); if (el) requestAnimationFrame(() => el.scrollIntoView()); }
+  else window.scrollTo(0, 0);
+}
+
+document.addEventListener("click", e => {
+  const same = e.target.closest('a[href^="#"]');
+  if (same && same.getAttribute("href") === (location.hash || "#") && same.getAttribute("href") !== "#") { e.preventDefault(); route(); }
+  const b = e.target.closest("[data-buy]");
+  if (b) { e.preventDefault(); openBuy(b.dataset.buy, b.dataset.fmt); }
+});
+document.getElementById("buyBtn").addEventListener("click", () => {
+  const id = (location.hash || "").slice(1);
+  openBuy(byId(id) ? id : P[0].id, "unit");
+});
+
+window.addEventListener("hashchange", route);
+function setNavH() { const n = document.querySelector("nav.site"); if (n) document.documentElement.style.setProperty("--navh", n.offsetHeight + "px"); }
+window.addEventListener("resize", setNavH);
+renderHome(); saveCart(); route(); setNavH();
 </script>
 </body>
 </html>
